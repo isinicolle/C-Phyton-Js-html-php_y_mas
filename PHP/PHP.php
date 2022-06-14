@@ -136,5 +136,44 @@
 
     echo "<br>";
 
+
+#segun categoria ingresada se le cobre el pasaje , si es menor a 12 años se le cobra $100, si es mayor a 12 años y menor a 18 años se le cobra $150, si es mayor a 18 años se le cobra $200
+    function pasaje($edad){
+        if($edad < 12){
+            $resultado = 100;
+        }elseif($edad >= 12 && $edad < 18){
+            $resultado = 150;
+        }elseif($edad >= 18){
+            $resultado = 200;
+        }
+        return $resultado;
+    }
+
+    echo "El pasaje de una persona con edad de 12 años es: " . pasaje(12);
+
+    echo "<br>";
+
+    #ejercicio que diga si un numero es primo o no
+    function primo($num){
+        $contador = 0;
+        for($i = 1; $i <= $num; $i++){
+            if($num % $i == 0){
+                $contador++;
+            }
+        }
+        if($contador == 2){
+            $resultado = "El numero es primo";
+        }else{
+            $resultado = "El numero no es primo";
+        }
+        return $resultado;
+    }
+
+    echo "El numero 7 es: " . primo(7);
+
+    echo "<br>";
+
+
+
 ?>
 
