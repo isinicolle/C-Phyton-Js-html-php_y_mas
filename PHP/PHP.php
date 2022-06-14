@@ -1290,6 +1290,203 @@
         echo "<p>El descuento es de: ".$_POST['costo']."</p>"; #muestra el descuento 
     } #fin de la condicion si el usuario selecciono el boton enviar
 
+#pedirle al usuario que ingrese el nombre de una persona que le guste y que se le muestre en pantalla
+    if(isset($_POST['nombre'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Agradecimiento</h1>"; #muestra el titulo 
+        echo "<p>Gracias por su compra</p>"; #muestra el mensaje de agradecimiento 
+        echo "<p>El descuento es de: ".$_POST['costo']."</p>"; #muestra el descuento 
+    } #fin de la condicion si el usuario selecciono el boton enviar
+
+#hacer un borrado automatico de los datos ingresados en el formulario
+
+#funcion que multiplica n cantidad de numeros
+    function multiplicar($n,$m){
+        $resultado = $n*$m;
+        return $resultado;
+    }
+
+#funcion que pida cantidad de numeros a sumar
+    function sumar($n){
+        $resultado = 0;
+        for($i=0;$i<$n;$i++){
+            $resultado += $i;
+        }
+        return $resultado;
+    }
+#segun la cantidad de numeros que se ingresan se le pide al usuario que ingrese esos numeros que coloco en la cantidad anterior y se muestra el resultado de la suma en pantalla y la cantidad de numeros que se ingresaron
+    if(isset($_POST['cantidad'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Agregar Numeros</h1>"; #muestra el titulo 
+        echo "<p>Ingrese ".$_POST['cantidad']." numeros</p>"; #muestra la cantidad de numeros que se ingresaran
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        for($i=0;$i<$_POST['cantidad'];$i++){
+            echo "<label>Numero ".$i.":</label>"; #muestra el label numero
+            echo "<input type='text' name='numero".$i."'><br>"; #muestra el input numero
+        }
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+
+        echo "<h1>Resultado</h1>"; #muestra el titulo
+        echo "<p>La suma de los numeros es: ".sumar($_POST['cantidad'])."</p>"; #muestra la suma de los numeros
+        echo "<p>La multiplicacion de los numeros es: ".multiplicar($_POST['cantidad'],$_POST['numero0'])."</p>"; #muestra la multiplicacion de los numeros
+
+
+    } #fin de la condicion si el usuario selecciono el boton enviar
+
+
+#funcion que recolecte el texto de un archivo txt y lo muestre en pantalla 
+    function leer_archivo($archivo){
+        $archivo = fopen($archivo,"r");
+        $texto = fread($archivo,filesize($archivo));
+        fclose($archivo);
+        return $texto;
+    } 
+
+#funcion que pida hora y minuto , junto con nombre de la actividad a realizar , mostrar en pantalla el nombre de la actividad y la hora y minuto en que se realizo en una tabla , debe aparecer un boton que de la opcion de guardar el archivo en una carpeta de su computador y que guarde el archivo en la carpeta que seleccione el usuario
+    if(isset($_POST['nombre']) && isset($_POST['hora']) && isset($_POST['minuto'])){ #si el usuario selecciono el boton enviar  
+
+        echo "<h1>Agregar Actividad</h1>"; #muestra el titulo
+        echo "<p>Ingrese el nombre de la actividad</p>"; #muestra el mensaje de agradecimiento
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<label>Nombre:</label>"; #muestra el label nombre
+        echo "<input type='text' name='nombre'><br>"; #muestra el input nombre
+        echo "<label>Hora:</label>"; #muestra el label hora
+        echo "<input type='text' name='hora'><br>"; #muestra el input hora
+        echo "<label>Minuto:</label>"; #muestra el label minuto
+        echo "<input type='text' name='minuto'><br>"; #muestra el input minuto
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+        
+        echo "<h1>Resultado</h1>"; #muestra el titulo
+        echo "<p>La actividad es: ".$_POST['nombre']."</p>"; #muestra el nombre de la actividad
+        echo "<p>La hora es: ".$_POST['hora']."</p>"; #muestra la hora
+        echo "<p>El minuto es: ".$_POST['minuto']."</p>"; #muestra el minuto
+        echo "<p>El archivo se guardo en la carpeta: ".$_POST['nombre']."</p>"; #muestra el mensaje de agradecimiento
+        $archivo = fopen($_POST['nombre'].".txt","w"); #abre el archivo
+        fwrite($archivo,$_POST['nombre']."\n"); #escribe el nombre de la actividad
+        fwrite($archivo,$_POST['hora']."\n"); #escribe la hora
+        fwrite($archivo,$_POST['minuto']."\n"); #escribe el minuto
+        fclose($archivo); #cierra el archivo
+        echo "<p>El archivo se guardo en la carpeta: ".$_POST['nombre']."</p>"; #muestra el mensaje de agradecimiento
+  
+        
+    } #fin de la condicion si el usuario selecciono el boton enviar
+
+    #cuando sean diversas actividades almacenarlas en un arreglo y agregarlas a la tabla y al archivo previamente guardado en caso de que no exista el archivo crear uno
+    $actividades = array();
+    $archivo = fopen("actividades.txt","r");
+    if($archivo){
+        while(!feof($archivo)){
+            $actividades[] = fgets($archivo);
+        }
+        fclose($archivo);
+    }
+    else{
+        $archivo = fopen("actividades.txt","w");
+        fclose($archivo);
+    }
+    echo "<h1>Actividades</h1>";
+    echo "<table border='1'>";
+    echo "<tr><td>Nombre</td><td>Hora</td><td>Minuto</td></tr>";
+    foreach($actividades as $actividad){
+        $actividad = explode("\n",$actividad);
+        echo "<tr><td>".$actividad[0]."</td><td>".$actividad[1]."</td><td>".$actividad[2]."</td></tr>";
+    }
+    echo "</table>";
+    echo "<h1>Agregar Actividad</h1>";
+    echo "<p>Ingrese el nombre de la actividad</p>";
+    echo "<form action='calculadora.php' method='post'>";
+    echo "<label>Nombre:</label>";
+    echo "<input type='text' name='nombre'><br>";
+    echo "<label>Hora:</label>";
+    echo "<input type='text' name='hora'><br>";
+    echo "<label>Minuto:</label>";
+    echo "<input type='text' name='minuto'><br>";
+    echo "<input type='submit' value='Enviar'>";
+    echo "</form>";
+
+    $archivo = fopen("actividades.txt","a");
+    fwrite($archivo,$_POST['nombre']."\n");
+    fwrite($archivo,$_POST['hora']."\n");
+    fwrite($archivo,$_POST['minuto']."\n");
+    fclose($archivo);
+
+    echo "<p>El archivo se guardo en la carpeta: ".$_POST['nombre']."</p>";
+
+    echo "<h1>Resultado</h1>";
+    echo "<p>La actividad es: ".$_POST['nombre']."</p>";
+    echo "<p>La hora es: ".$_POST['hora']."</p>";
+    echo "<p>El minuto es: ".$_POST['minuto']."</p>";
+    echo "<p>El archivo se guardo en la carpeta: ".$_POST['nombre']."</p>";
+
+    #si la tabla esta vacia cargar los datos del archivo actividades.txt en la tabla para que se muestren
+    if(count($actividades) == 0){
+        $archivo = fopen("actividades.txt","r");
+        while(!feof($archivo)){
+            $actividades[] = fgets($archivo);
+        }
+        fclose($archivo);
+        echo "<h1>Actividades</h1>";
+        echo "<table border='1'>";
+        echo "<tr><td>Nombre</td><td>Hora</td><td>Minuto</td></tr>";
+        foreach($actividades as $actividad){
+            $actividad = explode("\n",$actividad);
+            echo "<tr><td>".$actividad[0]."</td><td>".$actividad[1]."</td><td>".$actividad[2]."</td></tr>";
+        }
+        echo "</table>";
+    }
+#almacenar los datos de la tabla en localstorage del navegador en uso para que se muestren en la tabla cada vez que se abra el navegador
+    echo "<script>"; #abre el script
+    echo "var actividades = [];"; #abre la variable actividades y la inicializa
+    foreach($actividades as $actividad){ #recorre el arreglo actividades
+        $actividad = explode("\n",$actividad); #separa el string en un arreglo
+        echo "actividades.push(['".$actividad[0]."','".$actividad[1]."','".$actividad[2]."']);"; #agrega los datos del arreglo al arreglo actividades
+    } #cierra el foreach
+    echo "localStorage.setItem('actividades',JSON.stringify(actividades));"; #guarda el arreglo actividades en localstorage 
+    echo "</script>"; #cierra el script 
+
+    #crear una tabla con los datos de la tabla localstorage
+    echo "<script>"; #abre el script
+    echo "var actividades = JSON.parse(localStorage.getItem('actividades'));"; #abre la variable actividades y la inicializa 
+    echo "var tabla = document.createElement('table');"; #abre la variable tabla y la inicializa 
+    echo "var tr = document.createElement('tr');"; #abre la variable tr y la inicializa
+    echo "var td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "var texto = document.createTextNode('Nombre');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "texto = document.createTextNode('Hora');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "texto = document.createTextNode('Minuto');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "tabla.appendChild(tr);"; #agrega el tr al tabla
+    echo "for(var i = 0; i < actividades.length; i++){"; #abre el for
+        echo "tr = document.createElement('tr');"; #abre la variable tr y la inicializa
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][0]);"; #abre la variable texto y la inicializa
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][1]);"; #abre la variable texto y la inicializa
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][2]);"; #abre la variable texto y la inicializa
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "tabla.appendChild(tr);"; #agrega el tr al tabla
+    } #cierra el for y el script   
+    echo "document.body.appendChild(tabla);"; #agrega el tabla al body
+    echo "</script>"; #cierra el script
+  
+
+
+
+
+
+
 
 
 
