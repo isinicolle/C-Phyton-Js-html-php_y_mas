@@ -572,6 +572,76 @@ def ejercicio38():
     print(response.text)
 
 
+#funcion que reciba como parametro una lsita de enteros positivos y devuelva el promedio de los numeros y el minimo comun multiplo de todos ellos 
+def ejercicio39():
+    import math
+    lista = []
+    cantidad = int(input("Ingrese la cantidad de numeros: "))
+    for i in range(cantidad):
+        numero = int(input("Ingrese el numero: "))
+        lista.append(numero)
+    promedio = sum(lista) / len(lista)
+    minimo = min(lista)
+    maximo = max(lista)
+    for i in range(minimo, maximo + 1):
+        if i % promedio == 0:
+            comun = i
+            break
+    return promedio, comun
+
+
+#funcion que reciba como parametro dos palabras e indique si con las letras de la primera palabra se puede formar la segunda palabra
+def ejercicio40():
+    palabra1 = input("Ingrese la primera palabra: ")
+    palabra2 = input("Ingrese la segunda palabra: ")
+    if palabra1 == palabra2:
+        return True
+    else:
+        return False
+
+#funcion que reciba como parametro la direccion de un archivo y devuelva la cantidad de lineas que tiene , cuantas letras son mayusculas y cuantas letras son minusculas, cuantas son numeros el resultado almacenarlo en un archivo y mostrarlo en pantalla
+def ejercicio41():
+    import os
+    import re
+    import string
+    archivo = input("Ingrese la direccion del archivo: ")
+    if os.path.exists(archivo):
+        contador = 0
+        contador_mayusculas = 0
+        contador_minusculas = 0
+        contador_numeros = 0
+        with open(archivo, "r") as archivo:
+            for linea in archivo:
+                contador += 1
+                contador_mayusculas += len(re.findall(r'[A-Z]', linea))
+                contador_minusculas += len(re.findall(r'[a-z]', linea))
+                contador_numeros += len(re.findall(r'[0-9]', linea))
+        with open("resultado.txt", "w") as archivo:
+            archivo.write("Cantidad de lineas: " + str(contador) + "\n")
+            archivo.write("Cantidad de letras mayusculas: " + str(contador_mayusculas) + "\n")
+            archivo.write("Cantidad de letras minusculas: " + str(contador_minusculas) + "\n")
+            archivo.write("Cantidad de numeros: " + str(contador_numeros) + "\n")
+        print("Cantidad de lineas: " + str(contador))
+        print("Cantidad de letras mayusculas: " + str(contador_mayusculas))
+        print("Cantidad de letras minusculas: " + str(contador_minusculas))
+        print("Cantidad de numeros: " + str(contador_numeros))
+    else:
+        print("El archivo no existe")
+
+#una funcion llamada combnaciones que recibad e parametro una lista de  almenso 3 caracteres y escriba un archivo todas las posibles combinaciones de tres caracteres que se podrian formar
+def ejercicio42():
+    import itertools
+    lista = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    combinaciones = itertools.permutations(lista, 3)
+    with open("combinaciones.txt", "w") as archivo:
+        for i in combinaciones:
+            archivo.write(i[0] + i[1] + i[2] + "\n")
+
+    
+
+
+
+
 
 
 
