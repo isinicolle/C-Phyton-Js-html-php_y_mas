@@ -296,7 +296,467 @@
         return $personas;
     }
 
+#hacer una tabla que al ingresar los datos nombre y apellido tenga la opcion de editar y eliminar
+    function mostrar3($personas){
+        echo "<table border='1'>";
+        echo "<tr>";
+        echo "<td>Nombre</td>";
+        echo "<td>Apellido</td>";
+        echo "<td>Edad</td>";
+        echo "</tr>";
+        foreach($personas as $persona){
+            echo "<tr>";
+            echo "<td>" . $persona["nombre"] . "</td>";
+            echo "<td>" . $persona["apellido"] . "</td>";
+            echo "<td>" . $persona["edad"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+
+#falta opcion de editar y eliminar
+#delete y update
+
+#mostrar en pantalla la palabra gracias por usar el programa
+    echo "Gracias por usar el programa";
+
+    echo "<br>";
+
+#funcionq ue muestre el video kill this love de youtube en pantalla
+    function video(){
+        echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/QH2-TGUlwu4' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+    }
+
+    video();
+
+    echo "<br>";
+
+#funcion que meustre el video kill this love de youtube en pantalla y lo reproduzca automaticamente
+    function video2(){
+        echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/QH2-TGUlwu4' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+    }
+
+#juego de pacman completo usando html y css
+    function pacman(){
+        echo "<div class='pacman'>";
+        echo "<div class='pacman-body'>";
+        echo "<div class='pacman-mouth'></div>";
+        echo "</div>";
+        echo "</div>";
+    } 
+
+    pacman();
+
+    echo "<br>";
+
+#test de 5 preguntas con opciones de respuesta y mostrar el resultado en pantalla
+    function preguntas(){
+        $preguntas = array(
+            "¿Quien es el autor de la saga de los tres cuervos?",
+            "¿Quien es el autor de la saga de los tres cuervos?",
+            "¿Quien es el autor de la saga de los tres cuervos?",
+            "¿Quien es el autor de la saga de los tres cuervos?",
+            "¿Quien es el autor de la saga de los tres cuervos?"
+        );
+        $opciones = array(
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien"
+        );
+        $respuestas = array(
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien"
+        );
+        $respuestas_correctas = array(
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien"
+        );
+        $respuestas_incorrectas = array(
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien",
+            "J.R.R. Tolkien"
+        );
+        $respuestas_correctas_usuario = array();
+        $respuestas_incorrectas_usuario = array();
+        $puntaje = 0;
+        for($i = 0; $i < 5; $i++){
+            echo $preguntas[$i] . "<br>";
+            echo "1. " . $opciones[$i] . "<br>";
+            echo "2. " . $opciones[$i + 1] . "<br>";
+            echo "3. " . $opciones[$i + 2] . "<br>";
+            echo "4. " . $opciones[$i + 3] . "<br>";
+            echo "5. " . $opciones[$i + 4] . "<br>";
+            echo "Ingrese la respuesta correcta: ";
+            $respuesta_usuario = fgets(STDIN);
+            if($respuesta_usuario == $respuestas_correctas[$i]){
+                $puntaje++;
+                $respuestas_correctas_usuario[$i] = $respuestas_correctas[$i];
+            }else{
+                $respuestas_incorrectas_usuario[$i] = $respuestas_incorrectas[$i];
+            }
+        }
+        echo "Su puntaje es: " . $puntaje;
+    }
+
+#examen de matematicas sobre suma de fracciones que muestre el resultado en pantalla segun las respuestas correctas seleccionadas
+    function examen(){
+        $preguntas = array(
+            "¿Cuantas fracciones hay en la suma de dos fracciones?",
+            "¿Cuantas fracciones hay en la suma de dos fracciones?",
+            "¿Cuantas fracciones hay en la suma de dos fracciones?",
+            "¿Cuantas fracciones hay en la suma de dos fracciones?",
+            "¿Cuantas fracciones hay en la suma de dos fracciones?"
+        );
+        $opciones = array(
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+        );
+        $respuestas = array(
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+        );
+        $respuestas_correctas = array(
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+        );
+        $respuestas_incorrectas = array(
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+        );
+        $respuestas_correctas_usuario = array();
+        $respuestas_incorrectas_usuario = array();
+        $puntaje = 0;
+        for($i = 0; $i < 5; $i++){
+            echo $preguntas[$i] . "<br>";
+            echo "1. " . $opciones[$i] . "<br>";
+            echo "2. " . $opciones[$i + 1] . "<br>";
+            echo "3. " . $opciones[$i + 2] . "<br>";
+            echo "4. " . $opciones[$i + 3] . "<br>";
+            echo "5. " . $opciones[$i + 4] . "<br>";
+            echo "Ingrese la respuesta correcta: ";
+            $respuesta_usuario = fgets(STDIN);
+            if($respuesta_usuario == $respuestas_correctas[$i]){
+                $puntaje++;
+                $respuestas_correctas_usuario[$i] = $respuestas_correctas[$i];
+            }else{
+                $respuestas_incorrectas_usuario[$i] = $respuestas_incorrectas[$i];
+            }
+        }
+        echo "Su puntaje es: " . $puntaje;
+    }
+#juego de x 0 , x la jugara el usuario y el 0 el computador mostrar en pantalla el resultado final y quien gano la partida
+#Juego tic tac toe con el usuario y el computador mostrar resultado en pantalla
+    function juego(){
+        $jugador = array(
+            "X",
+            "O"
+        );
+        $computador = array(
+            "X",
+            "O"
+        );
+        $tablero = array(
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        );
+        $turno = 0;
+        $ganador = 0;
+        $jugada = 0;
+        $jugada_computador = 0;
+        $jugada_usuario = 0;
+        $ganador_usuario = 0;
+        $ganador_computador = 0;
+        $ganador_empate = 0;
+        $ganador_usuario_final = 0;
+        $ganador_computador_final = 0;
+        $ganador_empate_final = 0;
+        $ganador_final = 0;
+  
+
+        while($ganador == 0){ #mientras no haya un ganador
+            if($turno == 0){ #si es el turno del usuario
+                echo "Ingrese la jugada: ";
+                $jugada_usuario = fgets(STDIN);
+                $jugada_usuario = trim($jugada_usuario);
+                if($jugada_usuario == "1" || $jugada_usuario == "2" || $jugada_usuario == "3" || $jugada_usuario == "4" || $jugada_usuario == "5" || $jugada_usuario == "6" || $jugada_usuario == "7" || $jugada_usuario == "8" || $jugada_usuario == "9"){
+                    if($tablero[$jugada_usuario] == "X" || $tablero[$jugada_usuario] == "O"){
+                        echo "Esa casilla ya esta ocupada, ingrese otra: "; #si la casilla ya esta ocupada
+                        $jugada_usuario = fgets(STDIN); #se pide otra jugada
+                        $jugada_usuario = trim($jugada_usuario); #se elimina espacios en blanco
+                    }
+                    $tablero[$jugada_usuario] = "X"; #se coloca el simbolo del usuario en la casilla correspondiente
+                    $turno = 1; #se cambia el turno
+                }else{  #si la jugada no es valida
+                    echo "Ingrese una casilla valida: ";    #se pide otra jugada
+                    $jugada_usuario = fgets(STDIN); #se pide otra jugada
+                    $jugada_usuario = trim($jugada_usuario);    #se elimina espacios en blanco
+                }
+            }else{ #si es el turno del computador
+                $jugada_computador = rand(0,8); #se genera una jugada aleatoria
+                if($tablero[$jugada_computador] == "X" || $tablero[$jugada_computador] == "O"){     #si la casilla ya esta ocupada
+                    $jugada_computador = rand(0,8); #se pide otra jugada
+                }
+                $tablero[$jugada_computador] = "O";     #se coloca el simbolo del computador en la casilla correspondiente
+                $turno = 0;
+            }
+            echo "Tablero: <br>";
+            echo "1. " . $tablero[0] . "<br>";
+            echo "2. " . $tablero[1] . "<br>";
+            echo "3. " . $tablero[2] . "<br>";
+            echo "4. " . $tablero[3] . "<br>";
+            echo "5. " . $tablero[4] . "<br>";
+            echo "6. " . $tablero[5] . "<br>";
+            echo "7. " . $tablero[6] . "<br>";
+            echo "8. " . $tablero[7] . "<br>";
+            echo "9. " . $tablero[8] . "<br>";
+            if($tablero[0] == "X" && $tablero[1] == "X" && $tablero[2] == "X"){
+                $ganador = 1;
+                $ganador_usuario_final = 1;
+            }elseif($tablero[3] == "X" && $tablero[4] == "X" && $tablero[5] == "X"){
+                $ganador = 1;
+                $ganador_usuario_final = 1;
+            }elseif($tablero[6] == "X" && $tablero[7] == "X" && $tablero[8] == "X"){
+                $ganador = 1;
+                $ganador_usuario_final = 1;
+            }elseif($tablero[0] == "X" && $tablero[3] == "X" && $tablero[6] == "X"){ #horizontal
+                $ganador = 1;
+                $ganador_usuario_final = 1; #ganador usuario
+            }elseif($tablero[1] == "X" && $tablero[4] == "X" && $tablero[7] == "X"){ #horizontal
+                $ganador = 1;
+                $ganador_usuario_final = 1; #ganador usuario
+            }elseif($tablero[2] == "X" && $tablero[5] == "X" && $tablero[8] == "X"){ #horizontal 
+                $ganador = 1; #ganador usuario
+                $ganador_usuario_final = 1;
+            }elseif($tablero[0] == "X" && $tablero[4] == "X" && $tablero[8] == "X"){ #diagonal
+                $ganador = 1;
+                $ganador_usuario_final = 1; #ganador usuario
+            }elseif($tablero[2] == "X" && $tablero[4] == "X" && $tablero[6] == "X"){ #diagonal
+                $ganador = 1;
+                $ganador_usuario_final = 1; #ganador usuario
+            }elseif($tablero[0] == "O" && $tablero[1] == "O" && $tablero[2] == "O"){
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[3] == "O" && $tablero[4] == "O" && $tablero[5] == "O"){
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[6] == "O" && $tablero[7] == "O" && $tablero[8] == "O"){
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[0] == "O" && $tablero[3] == "O" && $tablero[6] == "O"){ #horizontal
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[1] == "O" && $tablero[4] == "O" && $tablero[7] == "O"){ #horizontal
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[2] == "O" && $tablero[5] == "O" && $tablero[8] == "O"){ #horizontal
+                $ganador = 1; #ganador computador
+                $ganador_computador_final = 1;
+            }elseif($tablero[0] == "O" && $tablero[4] == "O" && $tablero[8] == "O"){ #diagonal
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }elseif($tablero[2] == "O" && $tablero[4] == "O" && $tablero[6] == "O"){ #diagonal
+                $ganador = 1;
+                $ganador_computador_final = 1; #ganador computador
+            }
+            if($ganador == 1){
+                if($ganador_usuario_final == 1){
+                    echo "Ganador: Usuario";
+                }elseif($ganador_computador_final == 1){
+                    echo "Ganador: Computador";
+                }
+            }
+            if($ganador == 0){
+                $turno = 1;
+            }
+        }
+    }
+
+#programa que muestre los asientos de una sala de cine y que permita reservar un asiento si esta disponible y que muestre el asiento que se ha reservado y el precio de la reserva. El programa debe permitir que el usuario pueda reservar varios asientos.
+    function asientos(){   #funcion que muestra los asientos de una sala de cine y que permita reservar un asiento si esta disponible y que muestre el asiento que se ha reservado y el precio de la reserva. El programa debe permitir que el usuario pueda reservar varios asientos.
+        $asientos = array("A1" => "Libre", "A2" => "Libre", "A3" => "Libre", "A4" => "Libre", "A5" => "Libre", "A6" => "Libre", "A7" => "Libre", "A8" => "Libre", "A9" => "Libre");
+        $asientos_reservados = array(); #array que guarda los asientos reservados
+        $precio = 0; #precio de la reserva
+        $precio_total = 0; #precio total de la reserva
+        $numero_asientos = 0;     #numero de asientos reservados
+        $numero_asientos_reservados = 0; #numero de asientos reservados
+        $numero_asientos_libres = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados final
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+
+        echo "Asientos disponibles: "; #muestra los asientos disponibles
+        foreach($asientos as $asiento => $estado){
+            echo $asiento . " ";
+        } #muestra los asientos disponibles
+        echo "<br>";
+        echo "Asientos reservados: "; #muestra los asientos reservados
+        foreach($asientos_reservados as $asiento => $estado){
+            echo $asiento . " ";
+        } #muestra los asientos reservados 
+
+        echo "<br>";
+        echo "Asientos libres: "; #muestra los asientos libres 
+        foreach($asientos as $asiento => $estado){
+            if($estado == "Libre"){
+                echo $asiento . " ";
+            }
+        } #muestra los asientos libres
+
+        echo "<br>";
+
+        while($numero_asientos_reservados_final == 0){ #mientras no se haya reservado ningun asiento
+            echo "Introduce el asiento que quieres reservar: ";
+            $asiento_reservado = trim(fgets(STDIN));
+            if(array_key_exists($asiento_reservado, $asientos)){
+                if($asientos[$asiento_reservado] == "Libre"){
+                    $asientos[$asiento_reservado] = "Reservado";
+                    $asientos_reservados[$asiento_reservado] = "Reservado";
+                    $numero_asientos_reservados++;
+                    $numero_asientos_libres--;
+                    $precio = $numero_asientos_reservados * 10;
+                    $precio_total = $precio_total + $precio;
+                    echo "Asiento reservado con exito. El precio de la reserva es de $precio euros.";
+                }else{
+                    echo "El asiento ya esta ocupado.";
+                } #si el asiento esta ocupado
+            }else{ #si el asiento no existe
+                echo "El asiento no existe.";
+            } #si el asiento no existe
+            echo "<br>";
+            echo "Asientos reservados: "; #muestra los asientos reservados
+            foreach($asientos_reservados as $asiento => $estado){
+                echo $asiento . " ";
+            } #muestra los asientos reservados
+            echo "<br>";
+            echo "Asientos libres: "; #muestra los asientos libres
+            foreach($asientos as $asiento => $estado){
+                if($estado == "Libre"){
+                    echo $asiento . " ";
+                }
+            } #muestra los asientos libres   
+            echo "<br>";    
+            if($numero_asientos_libres == 0){
+                $numero_asientos_reservados_final = 1;
+            } #si no quedan asientos libres
+        } #mientras no se haya reservado ningun asiento 
+        echo "El precio total de la reserva es de $precio_total euros."; #muestra el precio total de la reserva
+    } #fin de la funcion asientos
+
+    function asientos_reservados(){ #funcion que muestra los asientos reservados
+        $asientos = array("A1" => "Libre", "A2" => "Libre", "A3" => "Libre", "A4" => "Libre", "A5" => "Libre", "A6" => "Libre", "A7" => "Libre", "A8" => "Libre", "A9" => "Libre");
+        $asientos_reservados = array(); #array que guarda los asientos reservados
+        $precio = 0; #precio de la reserva
+        $precio_total = 0; #precio total de la reserva
+        $numero_asientos = 0;     #numero de asientos reservados
+        $numero_asientos_reservados = 0; #numero de asientos reservados
+        $numero_asientos_libres = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+        $numero_asientos_reservados_final = 0; #numero de asientos reservados
+        $numero_asientos_libres_final = 9; #numero de asientos libres
+
+        echo "Asientos disponibles: "; #muestra los asientos disponibles
+        foreach($asientos as $asiento => $estado){
+            echo $asiento . " ";
+        } #muestra los asientos disponibles
+        echo "<br>";
+        echo "Asientos reservados: "; #muestra los asientos reservados
+        foreach($asientos_reservados as $asiento => $estado){
+            echo $asiento . " ";
+        } #muestra los asientos reservados 
+
+        echo "<br>";
+        echo "Asientos libres: "; #muestra los asientos libres
+        foreach($asientos as $asiento => $estado){ #muestra los asientos libres
+            if($estado == "Libre"){ #si el asiento esta libre
+                echo $asiento . " ";
+            }
+        } #muestra los asientos libres
+
+        echo "<br>"; 
+        
+        while($numero_asientos_reservados_final == 0){ #mientras no se haya reservado ningun asiento 
+            echo "Introduce el asiento que quieres reservar: "; #pide el asiento que quiere reservar
+            $asiento_reservado = trim(fgets(STDIN)); #guarda el asiento que quiere reservar 
+            if(array_key_exists($asiento_reservado, $asientos)){ #si el asiento existe 
+                if($asientos[$asiento_reservado] == "Libre"){ #si el asiento esta libre 
+                    $asientos[$asiento_reservado] = "Reservado"; #lo reserva  y lo guarda en el array asientos_reservados  y en el array asientos
+                    $asientos_reservados[$asiento_reservado] = "Reservado"; #lo reserva  y lo guarda en el array asientos_reservados  y en el array asientos
+                    $numero_asientos_reservados++; #aumenta el numero de asientos reservados
+                    $numero_asientos_libres--; #disminuye el numero de asientos libres
+                    $precio = $numero_asientos_reservados * 10; #calcula el precio de la reserva
+                    $precio_total = $precio_total + $precio; #suma el precio de la reserva al precio total
+                    echo "Asiento reservado con exito. El precio de la reserva es de $precio euros."; #muestra el precio de la reserva
+                }else{ #si el asiento esta ocupado 
+                    echo "El asiento ya esta ocupado.";
+                } #si el asiento esta ocupado 
+            }else{ #si el asiento no existe 
+                echo "El asiento no existe.";
+            } #si el asiento no existe  
+            echo "<br>"; 
+            echo "Asientos reservados: "; #muestra los asientos reservados 
+            foreach($asientos_reservados as $asiento => $estado){
+                echo $asiento . " ";
+            } #muestra los asientos reservados 
+            echo "<br>";
+            echo "Asientos libres: "; #muestra los asientos libres
+            foreach($asientos as $asiento => $estado){
+                if($estado == "Libre"){
+                    echo $asiento . " ";
+                }
+            } #muestra los asientos libres 
+            echo "<br>";  
+            if($numero_asientos_libres == 0){
+                $numero_asientos_reservados_final = 1;
+            } #si no quedan asientos libres  y se sale del bucle
+        } #mientras no se haya reservado ningun asiento  
+        echo "El precio total de la reserva es de $precio_total euros."; #muestra el precio total de la reserva 
+    } #fin de la funcion asientos_reservados 
+    
 
 
+
+
+
+
+         
+
+
+
+       
 ?>
 
