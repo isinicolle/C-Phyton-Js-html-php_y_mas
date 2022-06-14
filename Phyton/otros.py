@@ -1678,7 +1678,93 @@ def ejercicio50():
             print("La mascara es: " + str(" "))
         elif clase == "D":
             print("La mascara es: " + str(" "))
-            
+        elif clase == "E":
+            print("La mascara es: " + str(" "))
+        else:
+            print("La mascara es: " + str(" "))
+    mascara()
+
+    #ejercicio de calculo de ip
+    import os
+    os.system("cls")
+    def calculo_ip():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("Ingrese el numero de subredes: ")
+        subredes = int(input())
+        print("El resultado del calculo de ip es: " + str(ip + "/" + str(subredes))) 
+    calculo_ip()
+
+#convertir una ip a binario
+    import os
+    os.system("cls")
+    def ip_binario():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a binario es: " + str(bin(ip)))
+    ip_binario()
+
+    #convertir una ip a decimal
+    import os
+    os.system("cls")
+    def ip_decimal():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a decimal es: " + str(int(ip, 2)))
+    ip_decimal()
+
+    #convertir una ip a hexadecimal
+    import os
+    os.system("cls")
+    def ip_hexadecimal():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a hexadecimal es: " + str(hex(ip)))
+    ip_hexadecimal()
+
+    #convertir una ip a octal
+    import os
+    os.system("cls")
+    def ip_octal():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a octal es: " + str(oct(ip)))
+    ip_octal()
+
+    #convertir binario a ip
+    import os
+    os.system("cls")
+    def binario_ip():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a decimal es: " + str(int(ip, 2)))
+    binario_ip()
+
+    #convertir decimal a ip
+    import os
+    os.system("cls")
+    def decimal_ip():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("El resultado de la conversion a decimal es: " + str(int(ip, 2)))
+    decimal_ip()
+
+    
+
 
     
 
