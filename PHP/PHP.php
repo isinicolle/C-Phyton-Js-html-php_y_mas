@@ -1475,11 +1475,200 @@
         echo "td = document.createElement('td');"; #abre la variable td y la inicializa
         echo "texto = document.createTextNode(actividades[i][2]);"; #abre la variable texto y la inicializa
         echo "td.appendChild(texto);"; #agrega el texto a la variable td
-        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "tr.appendChild(td);"; #agrega la variable td al tr a la variable tabla
         echo "tabla.appendChild(tr);"; #agrega el tr al tabla
-    } #cierra el for y el script   
+     } #cierra el for y el script   
     echo "document.body.appendChild(tabla);"; #agrega el tabla al body
     echo "</script>"; #cierra el script
+
+
+#enviar por correo electronico gmail el archivo con los datos de la tabla usando la funcion mail() de php con el correo electronico y el archivo adjunto 
+    $correo = $_POST['correo']; #guarda el correo electronico en la variable correo
+    $nombre = $_POST['nombre']; #guarda el nombre del archivo en la variable nombre 
+    $archivo = fopen("actividades.txt","r"); #abre el archivo actividades.txt en modo lectura
+    $contenido = fread($archivo,filesize("actividades.txt")); #lee el archivo actividades.txt y lo guarda en la variable contenido
+    fclose($archivo); #cierra el archivo actividades.txt
+    $headers = "From: ".$correo."\r\n"; #guarda el correo electronico en la variable headers
+    $headers .= "Reply-To: ".$correo."\r\n"; #guarda el correo electronico en la variable headers
+    $headers .= "MIME-Version: 1.0\r\n"; #guarda el correo electronico en la variable headers
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n"; #guarda el correo electronico en la variable headers
+    mail($correo,"Actividades",$contenido,$headers); #envia el correo electronico con el asunto Actividades y el contenido del archivo actividades.txt
+    echo "<script>"; #abre el script
+    echo "alert('Se ha enviado el archivo adjunto');"; #abre la alerta
+    echo "</script>"; #cierra el script
+
+#crear una tabla de sqlite3 con los datos de la tabla localstorage y guardarla en la base de datos actividades.db
+    $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+    $db->exec('CREATE TABLE actividades (nombre TEXT, hora TEXT, minuto TEXT)'); #crea la tabla actividades
+    $db->exec('INSERT INTO actividades (nombre,hora,minuto) VALUES ("'.$actividad[0].'","'.$actividad[1].'","'.$actividad[2].'")'); #inserta los datos de la tabla localstorage en la tabla actividades
+    $db->close(); #cierra la base de datos actividades.db
+
+    echo "<script>"; #abre el script
+    echo "alert('Se ha guardado el archivo en la base de datos');"; #abre la alerta
+    echo "</script>"; #cierra el script
+
+    echo "<script>"; #abre el script
+    echo "var actividades = JSON.parse(localStorage.getItem('actividades'));"; #abre la variable actividades y la inicializa
+    echo "var tabla = document.createElement('table');"; #abre la variable tabla y la inicializa
+    echo "var tr = document.createElement('tr');"; #abre la variable tr y la inicializa
+    echo "var td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "var texto = document.createTextNode('Nombre');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "texto = document.createTextNode('Hora');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+    echo "texto = document.createTextNode('Minuto');"; #abre la variable texto y la inicializa
+    echo "td.appendChild(texto);"; #agrega el texto a la variable td
+    echo "tr.appendChild(td);"; #agrega la variable td al tr
+    echo "tabla.appendChild(tr);"; #agrega el tr al tabla
+    echo "for(var i = 0; i < actividades.length; i++){"; #abre el for
+        echo "tr = document.createElement('tr');"; #abre la variable tr y la inicializa
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][0]);"; #abre la variable texto y la inicializa 
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][1]);"; #abre la variable texto y la inicializa
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "td = document.createElement('td');"; #abre la variable td y la inicializa
+        echo "texto = document.createTextNode(actividades[i][2]);"; #abre la variable texto y la inicializa
+        echo "td.appendChild(texto);"; #agrega el texto a la variable td
+        echo "tr.appendChild(td);"; #agrega la variable td al tr
+        echo "tabla.appendChild(tr);"; #agrega el tr al tabla
+    echo "}"; #cierra el for
+    echo "document.body.appendChild(tabla);"; #agrega el tabla al body
+    echo "</script>"; #cierra el script
+
+#almacenar la informacion de la base de datos actividades.db utilizando poo creando clases con atributos y metodos 
+    class Actividad{
+        public $nombre;
+        public $hora;
+        public $minuto;
+        function __construct($nombre,$hora,$minuto){
+            $this->nombre = $nombre;
+            $this->hora = $hora;
+            $this->minuto = $minuto;
+        }
+    }
+    $actividades = array();
+    $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+    $result = $db->query('SELECT * FROM actividades'); #selecciona todos los datos de la tabla actividades
+    while($row = $result->fetchArray()) { #ciclo while
+        $actividades[] = new Actividad($row['nombre'],$row['hora'],$row['minuto']); #crea una nueva actividad con los datos de la tabla actividades
+    }
+    $db->close(); #cierra la base de datos actividades.db
+
+#crear un formulario con una tabla html que muestre la informacion de la base de datos actividades.db y que permita agregar , eliminar una actividad o actualizar cuando se presione un boton
+    echo "<form action='index.php' method='post'>"; #abre el formulario
+    echo "<table>"; #abre la tabla
+    echo "<tr>"; #abre la fila
+    echo "<td>Nombre</td>"; #abre la columna
+    echo "<td>Hora</td>"; #abre la columna
+    echo "<td>Minuto</td>"; #abre la columna
+    echo "</tr>"; #cierra la fila
+    for($i = 0; $i < count($actividades); $i++){ #ciclo for
+        echo "<tr>"; #abre la fila
+        echo "<td><input type='text' name='nombre[]' value='".$actividades[$i]->nombre."'></td>"; #abre la columna
+        echo "<td><input type='text' name='hora[]' value='".$actividades[$i]->hora."'></td>"; #abre la columna
+        echo "<td><input type='text' name='minuto[]' value='".$actividades[$i]->minuto."'></td>"; #abre la columna
+        echo "</tr>"; #cierra la fila
+    }
+    echo "</table>"; #cierra la tabla
+    echo "<input type='submit' value='Agregar'>"; #abre el boton
+    echo "<input type='submit' value='Eliminar'>"; #abre el boton
+    echo "<input type='submit' value='Actualizar'>"; #abre el boton
+    echo "</form>"; #cierra el formulario
+
+#si se presiona el boton eliminar , elimina la actividad de la base de datos actividades.db
+    if(isset($_POST['eliminar'])){
+        $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+        $db->exec('DELETE FROM actividades WHERE nombre = "'.$_POST['nombre'].'"'); #elimina la actividad de la base de datos actividades.db
+        $db->close(); #cierra la base de datos actividades.db
+    }
+
+#si se presiona el boton agregar , agrega una nueva actividad a la base de datos actividades.db
+    if(isset($_POST['agregar'])){
+        $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+        $db->exec('INSERT INTO actividades (nombre,hora,minuto) VALUES ("'.$_POST['nombre'].'","'.$_POST['hora'].'","'.$_POST['minuto'].'")'); #agrega la actividad a la base de datos actividades.db
+        $db->close(); #cierra la base de datos actividades.db
+    }
+
+    #si se presiona el boton actualizar , actualiza la informacion de la actividad de la base de datos actividades.db
+    if(isset($_POST['actualizar'])){
+        $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+        $db->exec('UPDATE actividades SET nombre = "'.$_POST['nombre'].'", hora = "'.$_POST['hora'].'", minuto = "'.$_POST['minuto'].'" WHERE nombre = "'.$_POST['nombre'].'"'); #actualiza la informacion de la actividad de la base de datos actividades.db
+        $db->close(); #cierra la base de datos actividades.db
+    }
+
+#crear un boton llamado eliminar horario en caso de presionarla que elimine todos los registros de la base de datos actividades.db de la tabla actividades
+    echo "<form action='index.php' method='post'>"; #abre el formulario
+    echo "<input type='submit' value='Eliminar Horario'>"; #abre el boton
+    echo "</form>"; #cierra el formulario
+
+    #si se presiona el boton eliminar horario , elimina todos los registros de la base de datos actividades.db de la tabla actividades
+    if(isset($_POST['eliminarHorario'])){
+        $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+        $db->exec('DELETE FROM actividades'); #elimina todos los registros de la tabla actividades
+        $db->close(); #cierra la base de datos actividades.db
+    }
+
+    #crear un boton llamado agregar horario en caso de presionarla que agregue un registro a la base de datos actividades.db de la tabla actividades
+    echo "<form action='index.php' method='post'>"; #abre el formulario
+    echo "<input type='submit' value='Agregar Horario'>"; #abre el boton
+    echo "</form>"; #cierra el formulario
+
+    #si se presiona el boton agregar horario , agrega un registro a la base de datos actividades.db de la tabla actividades
+    if(isset($_POST['agregarHorario'])){
+        $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+        $db->exec('INSERT INTO actividades (nombre,hora,minuto) VALUES ("Actividad","00","00")'); #agrega un registro a la tabla actividades
+        $db->close(); #cierra la base de datos actividades.db
+    }
+
+    #crear un boton llamado actualizar horario en caso de presionarla que actualice la informacion de la actividad de la base de datos actividades.db de la tabla actividades
+    echo "<form action='index.php' method='post'>"; #abre el formulario
+    echo "<input type='submit' value='Actualizar Horario'>"; #abre el boton
+    echo "</form>"; #cierra el formulario
+
+#si la tabla de la base de datos esta vacia enviar un mensaje de que no existen datos , en caso contrario contar la cantidad de datos que hay y mostrarle al usuario el numero total de las actividades
+    $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+    $result = $db->query('SELECT * FROM actividades'); #selecciona todos los registros de la tabla actividades
+    $count = 0; #inicializa la variable count
+    while($row = $result->fetchArray()){ #recorre todos los registros de la tabla actividades
+        $count++; #incrementa la variable count
+    }
+    if($count == 0){ #si la variable count es igual a 0 , envia un mensaje de que no existen datos
+        echo "No existen datos";
+    }else{ #en caso contrario , muestra la cantidad de datos que hay
+        echo "Existen ".$count." datos";
+    }
+    $db->close(); #cierra la base de datos actividades.db
+
+#cuando se acerque la hora y minuto de la actividad a realizar que notifique el computador al usuario 
+    $db = new SQLite3('actividades.db'); #abre la base de datos actividades.db
+    $result = $db->query('SELECT * FROM actividades'); #selecciona todos los registros de la tabla actividades
+
+    while($row = $result->fetchArray()){ #recorre todos los registros de la tabla actividades
+        $hora = $row['hora']; #asigna la hora de la actividad a la variable hora
+        $minuto = $row['minuto']; #asigna el minuto de la actividad a la variable minuto
+        $nombre = $row['nombre']; #asigna el nombre de la actividad a la variable nombre
+        $horaActual = date("H"); #asigna la hora actual a la variable horaActual
+        $minutoActual = date("i"); #asigna el minuto actual a la variable minutoActual
+        if($horaActual == $hora && $minutoActual == $minuto){ #si la hora actual es igual a la hora de la actividad y el minuto actual es igual al minuto de la actividad
+            echo "Hora de la actividad: ".$hora.":".$minuto."<br>"; #muestra la hora de la actividad
+            echo "Nombre de la actividad: ".$nombre."<br>"; #muestra el nombre de la actividad
+            echo "Hora actual: ".$horaActual.":".$minutoActual."<br>"; #muestra la hora actual
+            echo "Se realizara la actividad: ".$nombre."<br>"; #muestra la actividad a realizar
+        }
+    }
+    $db->close(); #cierra la base de datos actividades.db
+
+    
+    
+
   
 
 
