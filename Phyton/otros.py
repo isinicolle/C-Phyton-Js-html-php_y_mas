@@ -734,6 +734,146 @@ def ejercicio44():
         opcion = int(input("Ingrese la opcion: "))
 
     
+    #solicitar la ruta completa de un archivo (en una sola cadena) clasificar si los numeros dentro de el son positivos o negativos
+def ejercicio45():
+    import os
+    os.system("cls")
+    ruta = input("Ingrese la ruta del archivo: ")
+    if os.path.exists(ruta):
+        with open(ruta, "r") as archivo:
+            for linea in archivo:
+                linea = linea.strip()
+                if linea.isdigit():
+                    if int(linea) > 0:
+                        print("Positivo")
+                    else:
+                        print("Negativo")
+                else:
+                    print("No es un numero")
+    else:
+        print("El archivo no existe")
+
+#solicitar la ruta completa de un archivo (en una sola cadena) clasificar si los numeros dentro de el son positivos o negativos que los clasifique segun su primera cifra y los almacene en un archivo si empiezan 1,2,3,4 guardarlo en el archivo rango1.txt si empiezan 5,6,7,8 guardarlo en el archivo rango2.txt si empiezan 9,0,a,b guardarlo en el archivo rango3.txt
+def ejercicio46():
+    import os
+    os.system("cls")
+    ruta = input("Ingrese la ruta del archivo: ")
+    if os.path.exists(ruta):
+        with open(ruta, "r") as archivo:
+            for linea in archivo:
+                linea = linea.strip()
+                if linea.isdigit():
+                    if int(linea) > 0:
+                        if int(linea) % 10 == 1:
+                            with open("rango1.txt", "a") as archivo1:
+                                archivo1.write(linea + "\n")
+                        elif int(linea) % 10 == 2:
+                            with open("rango2.txt", "a") as archivo2:
+                                archivo2.write(linea + "\n")
+                        elif int(linea) % 10 == 3:
+                            with open("rango3.txt", "a") as archivo3:
+                                archivo3.write(linea + "\n")
+                        elif int(linea) % 10 == 4:
+                            with open("rango4.txt", "a") as archivo4:
+                                archivo4.write(linea + "\n")
+                        elif int(linea) % 10 == 5:
+                            with open("rango5.txt", "a") as archivo5:
+                                archivo5.write(linea + "\n")
+                        elif int(linea) % 10 == 6:
+                            with open("rango6.txt", "a") as archivo6:
+                                archivo6.write(linea + "\n")
+                        elif int(linea) % 10 == 7:
+                            with open("rango7.txt", "a") as archivo7:
+                                archivo7.write(linea + "\n")    
+                        elif int(linea) % 10 == 8:
+                            with open("rango8.txt", "a") as archivo8:
+                                archivo8.write(linea + "\n")
+                        elif int(linea) % 10 == 9:
+                            with open("rango9.txt", "a") as archivo9:
+                                archivo9.write(linea + "\n")
+                        elif int(linea) % 10 == 0:
+                            with open("rango0.txt", "a") as archivo0:
+                                archivo0.write(linea + "\n")
+                        elif int(linea) % 10 == a:
+                            with open("rangoa.txt", "a") as archivoA:
+                                archivoA.write(linea + "\n")
+                        elif int(linea) % 10 == b:
+                            with open("rangob.txt", "a") as archivoB:
+                                archivoB.write(linea + "\n")
+                    else:   
+                        if int(linea) % 10 == 1:
+                            with open("rango1.txt", "a") as archivo1:
+                                archivo1.write(linea + "\n")
+                        elif int(linea) % 10 == 2:
+                            with open("rango2.txt", "a") as archivo2:
+                                archivo2.write(linea + "\n")
+                        elif int(linea) % 10 == 3:
+                            with open("rango3.txt", "a") as archivo3:
+                                archivo3.write(linea + "\n")
+                        elif int(linea) % 10 == 4:
+                            with open("rango4.txt", "a") as archivo4:
+                                archivo4.write(linea + "\n")
+                        elif int(linea) % 10 == 5:
+                            with open("rango5.txt", "a") as archivo5:
+                                archivo5.write(linea + "\n")
+                        elif int(linea) % 10 == 6:
+                            with open("rango6.txt", "a") as archivo6:
+                                archivo6.write(linea + "\n")
+                        elif int(linea) % 10 == 7:
+                            with open("rango7.txt", "a") as archivo7:
+                                archivo7.write(linea + "\n")    
+                        elif int(linea) % 10 == 8:
+                            with open("rango8.txt", "a") as archivo8:
+                                archivo8.write(linea + "\n")
+                        elif int(linea) % 10 == 9:
+                            with open("rango9.txt", "a") as archivo9:
+                                archivo9.write(linea + "\n")
+                        elif int(linea) % 10 == 0:
+                            with open("rango0.txt", "a") as archivo0:
+                                archivo0.write(linea + "\n")
+                        elif int(linea) % 10 == a:
+                            with open("rangoa.txt", "a") as archivoA:
+                                archivoA.write(linea + "\n")
+                        elif int(linea) % 10 == b:
+                            with open("rangob.txt", "a") as archivoB:
+                                archivoB.write(linea + "\n")
+                else:
+                    print("No es un numero")
+    else:
+        print("El archivo no existe")
+
+ #se debe abrir los archivos y leerlos los que sean positivos almacenarlos en positivo.txt y los negativos en negativo.txt
+def ejercicio47():
+    import os
+    os.system("cls")
+    ruta1 = input("Ingrese la ruta del archivo positivo: ")
+    ruta2 = input("Ingrese la ruta del archivo negativo: ")
+    if os.path.exists(ruta1) and os.path.exists(ruta2):
+        with open(ruta1, "r") as archivo1:
+            for linea in archivo1:
+                linea = linea.strip()
+                if linea.isdigit():
+                    if int(linea) > 0:
+                        with open("positivo.txt", "a") as archivo2:
+                            archivo2.write(linea + "\n")
+                    else:
+                        with open("negativo.txt", "a") as archivo3:
+                            archivo3.write(linea + "\n")
+        with open(ruta2, "r") as archivo4:
+            for linea in archivo4:
+                linea = linea.strip()
+                if linea.isdigit():
+                    if int(linea) > 0:
+                        with open("positivo.txt", "a") as archivo5:
+                            archivo5.write(linea + "\n")
+                    else:
+                        with open("negativo.txt", "a") as archivo6:
+                            archivo6.write(linea + "\n")
+    else:
+        print("El archivo no existe")
+        
+
+
 
 
 
