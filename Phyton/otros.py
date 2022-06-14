@@ -1,3 +1,4 @@
+from collections import abc
 import tkinter as tk
 from tkinter import filedialog
 import os.path
@@ -871,7 +872,449 @@ def ejercicio47():
                             archivo6.write(linea + "\n")
     else:
         print("El archivo no existe")
-        
+
+#el usuario ingresa una palabra esta debe cifrarse con una clave de 3 caracteres
+def ejercicio48():
+    import os
+    os.system("cls")
+    palabra = input("Ingrese la palabra a cifrar: ")
+    clave = input("Ingrese la clave: ")
+    if len(clave) == 3:
+
+        for i in range(len(palabra)):
+            if palabra[i] == "a":
+                palabra = palabra.replace("a", "b")
+            elif palabra[i] == "b":
+                palabra = palabra.replace("b", "c")
+            elif palabra[i] == "c":
+                palabra = palabra.replace("c", "d")
+            elif palabra[i] == "d":
+                palabra = palabra.replace("d", "e")
+            elif palabra[i] == "e":
+                palabra = palabra.replace("e", "f")
+            elif palabra[i] == "f":
+                palabra = palabra.replace("f", "g")
+            elif palabra[i] == "g":
+                palabra = palabra.replace("g", "h")
+            elif palabra[i] == "h":
+                palabra = palabra.replace("h", "i")
+            elif palabra[i] == "i":
+                palabra = palabra.replace("i", "j")
+            elif palabra[i] == "j":
+                palabra = palabra.replace("j", "k")
+            elif palabra[i] == "k":
+                palabra = palabra.replace("k", "l")
+            elif palabra[i] == "l":
+                palabra = palabra.replace("l", "m")
+            elif palabra[i] == "m":
+                palabra = palabra.replace("m", "n")
+            elif palabra[i] == "n":
+                palabra = palabra.replace("n", "o")
+            elif palabra[i] == "o":
+                palabra = palabra.replace("o", "p")
+            elif palabra[i] == "p":
+                palabra = palabra.replace("p", "q")
+            elif palabra[i] == "q":
+                palabra = palabra.replace("q", "r")
+            elif palabra[i] == "r":
+                palabra = palabra.replace("r", "s")
+            elif palabra[i] == "s":
+                palabra = palabra.replace("s", "t")
+            elif palabra[i] == "t":
+                palabra = palabra.replace("t", "u")
+            elif palabra[i] == "u":
+
+                palabra = palabra.replace("u", "v")
+            elif palabra[i] == "v":
+                palabra = palabra.replace("v", "w")
+            elif palabra[i] == "w":
+                palabra = palabra.replace("w", "x")
+            elif palabra[i] == "x": 
+                palabra = palabra.replace("x", "y")
+            elif palabra[i] == "y":
+                palabra = palabra.replace("y", "z")
+            elif palabra[i] == "z":
+                palabra = palabra.replace("z", "a")
+        print("La palabra cifrada es: " + palabra)
+    else:
+        print("La clave debe tener 3 caracteres")
+
+#el usuario ingresa una palabra y se encripta con crifrado cesar 
+def ejercicio49():
+    import os
+    os.system("cls")
+    palabra = input("Ingrese la palabra a cifrar: ")
+    clave = input("Ingrese la clave: ")
+    if len(clave) == 3:
+        for i in range(len(palabra)):
+            if palabra[i] == "a":
+                palabra = palabra.replace("a", "b")
+            elif palabra[i] == "b":
+                palabra = palabra.replace("b", "c")
+            elif palabra[i] == "c":
+                palabra = palabra.replace("c", "d")
+            elif palabra[i] == "d":
+                palabra = palabra.replace("d", "e")
+            elif palabra[i] == "e":
+                palabra = palabra.replace("e", "f")
+            elif palabra[i] == "f":
+                palabra = palabra.replace("f", "g")
+            elif palabra[i] == "g":
+                palabra = palabra.replace("g", "h")
+            elif palabra[i] == "h":
+                palabra = palabra.replace("h", "i")
+            elif palabra[i] == "i":
+                palabra = palabra.replace("i", "j")
+            elif palabra[i] == "j":
+                palabra = palabra.replace("j", "k")
+            elif palabra[i] == "k":
+                palabra = palabra.replace("k", "l")
+            elif palabra[i] == "l":
+                palabra = palabra.replace("l", "m")
+            elif palabra[i] == "m":
+                palabra = palabra.replace("m", "n")
+            elif palabra[i] == "n":
+                palabra = palabra.replace("n", "o")
+            elif palabra[i] == "o":
+                palabra = palabra.replace("o", "p")
+            elif palabra[i] == "p":
+                palabra = palabra.replace("p", "q")
+            elif palabra[i] == "q":
+                palabra = palabra.replace("q", "r")
+            elif palabra[i] == "r":
+                palabra = palabra.replace("r", "s")
+            elif palabra[i] == "s":
+                palabra = palabra.replace("s", "t")
+            elif palabra[i] == "t":
+                palabra = palabra.replace("t", "u")
+            elif palabra[i] == "u":
+                palabra = palabra.replace("u", "v")
+
+            elif palabra[i] == "v":
+                palabra = palabra.replace("v", "w")
+            elif palabra[i] == "w":
+                palabra = palabra.replace("w", "x")
+            elif palabra[i] == "x":
+                palabra = palabra.replace("x", "y")
+            elif palabra[i] == "y":
+                palabra = palabra.replace("y", "z")
+            elif palabra[i] == "z":
+                palabra = palabra.replace("z", "a")
+        print("La palabra cifrada es: " + palabra)
+    else:
+        print("La clave debe tener 3 caracteres")
+    
+#un arreglo llamado abecedario
+def ejercicio50():
+    import os
+    os.system("cls")
+    abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    print("El abecedario es: " + str(abecedario))
+#ingresar una palabra y mostrar la palabra que se ingreso
+    palabra = input("Ingrese la palabra a mostrar: ")
+    print("La palabra es: " + palabra)
+
+#decir si la palabra es una oracion o no
+    if palabra[len(palabra) - 1] == ".":
+        print("La palabra es una oracion")
+    else:
+        print("La palabra no es una oracion")
+
+#almacenar en un archivo la palabra original
+
+    archivo = open("palabra.txt", "w")
+    archivo.write(palabra)
+    archivo.close() 
+#leer el archivo y mostrar la palabra original
+    archivo = open("palabra.txt", "r")
+    palabra = archivo.read()
+    print("La palabra original es: " + palabra)
+    archivo.close()
+#mostrar ubicacion del archivo creado y abrir la carpeta
+    print("La ubicacion del archivo es: " + os.getcwd())
+    os.system("explorer")
+
+#hacer un arreglo que almacene las letras de la palabra ingresada por separado
+
+    letras = []
+    for i in range(len(palabra)):
+        letras.append(palabra[i])
+    print("Las letras de la palabra son: " + str(letras))
+
+#decir en que posicion se encuentra cada letra del abedecedario
+    for i in range(len(letras)):
+        for j in range(len(abecedario)):
+            if letras[i] == abecedario[j]:
+                print("La letra " + letras[i] + " se encuentra en la posicion " + str(j))
+
+#cambiar las letras del arreglo letras por la letra que este 5 espacios adelante de el en caso de que la suma de los 5 espacios no se pase de largo del abedecedario volver iniciar la suma del restante en la posicion 0
+    for i in range(len(letras)):
+        for j in range(len(abecedario)):
+            if letras[i] == abecedario[j]:
+                letras[i] = abecedario[j + 5]
+                if j + 5 > len(abecedario) - 1:
+                    letras[i] = abecedario[j - len(abecedario) + 5]
+    print("Las letras cambiadas son: " + str(letras))
+
+    for i in range(len(letras)):
+        for j in range(len(abecedario)):
+            if letras[i] == abecedario[j]:
+                print("La letra " + letras[i] + " se encuentra en la posicion " + str(j))
+            
+
+
+#reproducir un video de youtube llamado kill this love , mostrar el titulo del video y el nombre del video junto con su duracion y enlace
+    import pytube
+    import os
+    os.system("cls")
+    video = pytube.YouTube("https://www.youtube.com/watch?v=_X-_X-_X-_X")
+    print("El titulo del video es: " + video.title)
+    print("El nombre del video es: " + video.filename)
+    print("La duracion del video es: " + str(video.length))
+    print("El enlace del video es: " + video.url)
+    video.streams.first().download()
+
+#convertir un video de youtube a mp3 y almacenarlo en una carpeta
+    import pytube
+    import os
+    os.system("cls")
+    video = pytube.YouTube("https://www.youtube.com/watch?v=_X-_X-_X-_X")
+    print("El titulo del video es: " + video.title)
+    print("El nombre del video es: " + video.filename)
+    print("La duracion del video es: " + str(video.length))
+    print("El enlace del video es: " + video.url)
+    video.streams.first().download()
+    video.streams.first().download()
+    os.system("explorer")
+
+#calculadora
+    import os
+    os.system("cls")
+    print("Calculadora")
+    print("1. Suma")
+    print("2. Resta")
+    print("3. Multiplicacion")
+    print("4. Division")
+    print("5. Salir")
+    opcion = int(input("Ingrese una opcion: "))
+    if opcion == 1:
+        num1 = int(input("Ingrese el primer numero: "))
+        num2 = int(input("Ingrese el segundo numero: "))
+        print("El resultado de la suma es: " + str(num1 + num2))
+    elif opcion == 2:
+        num1 = int(input("Ingrese el primer numero: "))
+        num2 = int(input("Ingrese el segundo numero: "))
+        print("El resultado de la resta es: " + str(num1 - num2))
+    elif opcion == 3:
+        num1 = int(input("Ingrese el primer numero: "))
+        num2 = int(input("Ingrese el segundo numero: "))
+        print("El resultado de la multiplicacion es: " + str(num1 * num2))
+    elif opcion == 4:
+        num1 = int(input("Ingrese el primer numero: "))
+        num2 = int(input("Ingrese el segundo numero: "))
+        print("El resultado de la division es: " + str(num1 / num2))
+    elif opcion == 5:
+        print("Gracias por usar la calculadora")
+    else:
+        print("Opcion no valida")
+
+#hacer una funcion que calcule el valor del vector
+    import os
+    os.system("cls")
+    def vector(x, y, z):
+        vector = [x, y, z]
+        return vector
+    print("El valor del vector es: " + str(vector(1, 2, 3)))
+
+#funcion que calcule la direccion de un vector
+    import os
+    os.system("cls")
+    def direccion(x, y, z):
+        vector = [x, y, z]
+        if x > 0 and y > 0 and z > 0:
+            return "El vector esta en el eje X positivo, Y positivo y Z positivo"
+        elif x > 0 and y > 0 and z < 0:
+            return "El vector esta en el eje X positivo, Y positivo y Z negativo"
+        elif x > 0 and y < 0 and z > 0:
+            return "El vector esta en el eje X positivo, Y negativo y Z positivo"
+        elif x > 0 and y < 0 and z < 0:
+            return "El vector esta en el eje X positivo, Y negativo y Z negativo"
+        elif x < 0 and y > 0 and z > 0:
+            return "El vector esta en el eje X negativo, Y positivo y Z positivo"
+        elif x < 0 and y > 0 and z < 0:
+            return "El vector esta en el eje X negativo, Y positivo y Z negativo"
+        elif x < 0 and y < 0 and z > 0:
+            return "El vector esta en el eje X negativo, Y negativo y Z positivo"
+        elif x < 0 and y < 0 and z < 0:
+            return "El vector esta en el eje X negativo, Y negativo y Z negativo"
+        elif x > 0 and y == 0 and z > 0:
+            return "El vector esta en el eje X positivo, Y 0 y Z positivo"
+        elif x > 0 and y == 0 and z < 0:
+            return "El vector esta en el eje X positivo, Y 0 y Z negativo"
+        elif x < 0 and y == 0 and z > 0:
+            return "El vector esta en el eje X negativo, Y 0 y Z positivo"
+        elif x < 0 and y == 0 and z < 0:
+            return "El vector esta en el eje X negativo, Y 0 y Z negativo"
+        elif x > 0 and y > 0 and z == 0:
+            return "El vector esta en el eje X positivo, Y positivo y Z 0"
+        elif x > 0 and y < 0 and z == 0:
+            return "El vector esta en el eje X positivo, Y negativo y Z 0"
+        elif x < 0 and y > 0 and z == 0:
+            return "El vector esta en el eje X negativo, Y positivo y Z 0"
+        elif x < 0 and y < 0 and z == 0:
+            return "El vector esta en el eje X negativo, Y negativo y Z 0"
+        elif x == 0 and y > 0 and z > 0:
+            return "El vector esta en el eje X 0, Y positivo y Z positivo"
+        elif x == 0 and y > 0 and z < 0:
+            return "El vector esta en el eje X 0, Y positivo y Z negativo"
+        elif x == 0 and y < 0 and z > 0:
+            return "El vector esta en el eje X 0, Y negativo y Z positivo"
+        elif x == 0 and y < 0 and z < 0:
+            return "El vector esta en el eje X 0, Y negativo y Z negativo"
+        elif x > 0 and y == 0 and z == 0:
+            return "El vector esta en el eje X positivo, Y 0 y Z 0"
+        elif x < 0 and y == 0 and z == 0:
+            return "El vector esta en el eje X negativo, Y 0 y Z 0"
+        elif x == 0 and y > 0 and z == 0:
+            return "El vector esta en el eje X 0, Y positivo y Z 0"
+        elif x == 0 and y < 0 and z == 0:
+            return "El vector esta en el eje X 0, Y negativo y Z 0"
+        elif x == 0 and y == 0 and z > 0:
+            return "El vector esta en el eje X 0, Y 0 y Z positivo"
+        elif x == 0 and y == 0 and z < 0:
+            return "El vector esta en el eje X 0, Y 0 y Z negativo"
+        else:
+            return "El vector no esta en ningun eje"
+    print("La direccion del vector es: " + str(direccion(1, 2, 3)))
+
+#calcular el teorema de pitagoras de un triangulo rectangulo 
+
+    import os
+    os.system("cls")
+    def pitagoras(a, b):
+        c = (a**2 + b**2)**0.5
+        return c
+    print("El valor de la hipotenusa es: " + str(pitagoras(3, 4)))
+
+#calcular el coseno , tangente y seno de un angulo
+    import os
+    os.system("cls")
+    def coseno(a):
+        c = (a**2 + 1)**0.5
+        return c
+    print("El valor del coseno es: " + str(coseno(3)))
+    def tangente(a):
+        c = (a**2 - 1)**0.5
+        return c
+    print("El valor de la tangente es: " + str(tangente(3)))
+    def seno(a):
+        c = (a**2 - 1)**0.5
+        return c
+    print("El valor del seno es: " + str(seno(3)))
+
+    #calcular el area sombreada de un triangulo rectangulo con un circulo
+    import os
+    os.system("cls")
+    def area(a, b):
+        c = (a**2 + b**2)**0.5
+        return c
+    print("El valor del area sombreada es: " + str(area(3, 4)))
+
+#calcular la matriz y su inversa con su determinante generada por numeros aleatorios 
+
+    import os
+    os.system("cls")
+    def matriz(a, b, c, d, e, f, g, h, i):
+        matriz = [[a, b, c], [d, e, f], [g, h, i]]
+        return matriz
+    print("La matriz es: " + str(matriz(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def determinante(a, b, c, d, e, f, g, h, i):
+        determinante = a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h
+        return determinante
+    print("El determinante es: " + str(determinante(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def inversa(a, b, c, d, e, f, g, h, i):
+        inversa = [[e*i - f*h, c*h - b*i, b*f - c*e], [f*g - d*i, a*i - c*g, c*d - a*f], [d*h - g*e, b*e - a*h, a*g - b*d]]
+        return inversa
+    print("La matriz inversa es: " + str(inversa(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+
+#determinar si un circuito esta en paralelo o serie con una fuente de alimentacion
+    import os
+    os.system("cls")
+    def circuito(a, b, c, d, e, f, g, h, i):
+        circuito = [[a, b, c], [d, e, f], [g, h, i]]
+        return circuito
+    print("El circuito es: " + str(circuito(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def fuente(a, b, c, d, e, f, g, h, i):
+        fuente = [[a, b, c], [d, e, f], [g, h, i]]
+        return fuente
+    print("La fuente de alimentacion es: " + str(fuente(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def paralelo(a, b, c, d, e, f, g, h, i):
+        paralelo = [[a, b, c], [d, e, f], [g, h, i]]
+        return paralelo
+    print("El circuito esta en paralelo con la fuente de alimentacion: " + str(paralelo(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def serie(a, b, c, d, e, f, g, h, i):
+        serie = [[a, b, c], [d, e, f], [g, h, i]]
+        return serie
+    print("El circuito esta en serie con la fuente de alimentacion: " + str(serie(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+
+
+#graficar el seno de una funcion
+    import os
+    os.system("cls")
+    def seno(a):
+        seno = [math.sin(x) for x in range(0, 360, 1)]
+        return seno
+    print("El seno de la funcion es: " + str(seno(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(seno(1))
+    plt.show()
+
+#graficar el coseno de una funcion
+    import os
+    os.system("cls")
+    def coseno(a):
+        coseno = [math.cos(x) for x in range(0, 360, 1)]
+        return coseno
+    print("El coseno de la funcion es: " + str(coseno(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(coseno(1))
+    plt.show()
+
+    #graficar la tangente de una funcion
+    import os
+    os.system("cls")
+    def tangente(a):
+        tangente = [math.tan(x) for x in range(0, 360, 1)]
+        return tangente
+    print("La tangente de la funcion es: " + str(tangente(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(tangente(1))
+    plt.show()
+
+    
+    
+
+
+   
+
+
+
+
+
+
+
+
+   
+
+
+
+
 
 
 
