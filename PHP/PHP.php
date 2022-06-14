@@ -46,5 +46,30 @@
 
     echo "<br>";
 
+#calcular el indice de masa corporal de una persona y mostrar en un mensaje el resultado de su estado actual
+
+    function imc($peso, $altura){
+        $resultado = $peso / ($altura * $altura);
+        return $resultado;
+    }
+#con el ejercicio anterior segundo el resultado del imc mostrar un  mensaje en que rango se encuentra su imc.
+    function estado($imc){
+        if($imc < 18.5){
+            $estado = "Peso bajo";
+        }elseif($imc >= 18.5 && $imc <= 24.9){
+            $estado = "Peso normal";
+        }elseif($imc >= 25 && $imc <= 29.9){
+            $estado = "Sobrepeso";
+        }elseif($imc >= 30 && $imc <= 34.9){
+            $estado = "Obesidad grado 1";
+        }elseif($imc >= 35 && $imc <= 39.9){
+            $estado = "Obesidad grado 2";
+        }elseif($imc >= 40){
+            $estado = "Obesidad grado 3";
+        }
+        return $estado;
+    }
+
+    
 ?>
 
