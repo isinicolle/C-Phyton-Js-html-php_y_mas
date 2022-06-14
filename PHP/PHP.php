@@ -242,7 +242,60 @@
         }
         echo "</table>";
     }
-#pedir por consola una cantidad de personas , luego en una estructura qu econtenga nombre,apellido y edad rellenar los datos de la cantidad de persoans ingresadas previamente al final mostrarlos en uan tabla
+
+    mostrar(persona(5));
+
+    echo "<br>";
+
+#pedir por consola una cantidad de personas , luego en una estructura qu econtenga nombre,apellido y edad rellenar los datos de la cantidad de persoans ingresadas previamente al final mostrarlos una tabla en pantalla
+    function persona2($cantidad){
+        $personas = array();
+        for($i = 1; $i <= $cantidad; $i++){
+            echo "Ingrese su nombre: ";
+            $nombre = fgets(STDIN);
+            echo "Ingrese su apellido: ";
+            $apellido = fgets(STDIN);
+            echo "Ingrese su edad: ";
+            $edad = fgets(STDIN);
+            $personas[$i] = array("nombre" => $nombre, "apellido" => $apellido, "edad" => $edad);
+        }
+        return $personas;
+    }
+#falta la tabla de los datos ingresados
+    function mostrar2($personas){
+        echo "<table border='1'>";
+        echo "<tr>";
+        echo "<td>Nombre</td>";
+        echo "<td>Apellido</td>";
+        echo "<td>Edad</td>";
+        echo "</tr>";
+        foreach($personas as $persona){
+            echo "<tr>";
+            echo "<td>" . $persona["nombre"] . "</td>";
+            echo "<td>" . $persona["apellido"] . "</td>";
+            echo "<td>" . $persona["edad"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+
+    mostrar2(persona2(5));
+
+#almacenar en local storage los datos anteriores
+    function persona3($cantidad){
+        $personas = array();
+        for($i = 1; $i <= $cantidad; $i++){
+            echo "Ingrese su nombre: ";
+            $nombre = fgets(STDIN);
+            echo "Ingrese su apellido: ";
+            $apellido = fgets(STDIN);
+            echo "Ingrese su edad: ";
+            $edad = fgets(STDIN);
+            $personas[$i] = array("nombre" => $nombre, "apellido" => $apellido, "edad" => $edad);
+        }
+        return $personas;
+    }
+
 
 
 ?>
