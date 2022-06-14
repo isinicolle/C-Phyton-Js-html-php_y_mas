@@ -1465,8 +1465,307 @@ def ejercicio50():
         else:
             print("La imagen no se encuentra en internet")
     buscar_imagen()
+
+#borrar datos anteriores
+    import os
+    os.system("cls")    
+    def borrar_datos():
+        import os
+        os.system("cls")
+        print("Datos borrados")
+    borrar_datos()
+
+#calcualr con una funcion cuanto tiempo falta para que llegue la luz
+    import os
+    os.system("cls")
+    def tiempo_falta():
+        import time
+        import datetime
+        import math
+        import os
+        os.system("cls")
+        print("Ingrese la fecha de la luz: ")
+        dia = int(input("Ingrese el dia: "))
+        mes = int(input("Ingrese el mes: "))
+        anio = int(input("Ingrese el anio: "))
+        hora = int(input("Ingrese la hora: "))
+        minutos = int(input("Ingrese los minutos: "))
+        segundos = int(input("Ingrese los segundos: "))
+        fecha_luz = datetime.datetime(anio, mes, dia, hora, minutos, segundos)
+        fecha_actual = datetime.datetime.now()
+        tiempo_falta = fecha_luz - fecha_actual
+        print("El tiempo falta para que llegue la luz es: " + str(tiempo_falta))
+        import matplotlib.pyplot as plt
+        import numpy as np
+        import math
+        plt.plot(tiempo_falta)
+        plt.show()
+    tiempo_falta()
+
+#funcion que realice un test de conocimiento con 5 preguntas(usar las mas famosas que se encuentran en internet) y si la respuesta es correcta o no asignarle 1 punto por cada si y 0 por cada no y mostrar el resultado
+    import os
+    os.system("cls")
+    def test_conocimiento():
+        import os
+        os.system("cls")
+        print("Ingrese la respuesta a la pregunta 1: ")
+        pregunta1 = input("1. ¿Qué es una computadora? ")
+        if pregunta1 == "Una computadora es una unidad de procesamiento que permite almacenar y procesar datos, información, y comunicación entre sistemas.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 2: ") 
+        pregunta2 = input("2. ¿Qué es un ser vivo? ")
+        if pregunta2 == "Un ser vivo es una criatura viva que se mueve y se alimenta en el medio ambiente.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 3: ")
+        pregunta3 = input("3. ¿Qué es el anima? ")
+        if pregunta3 == "El anima es una especie de ser vivo que se mueve y se alimenta en el medio ambiente.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 4: ")
+        pregunta4 = input("4. ¿Qué es una IA? ")
+        if pregunta4 == "Una IA es una computadora que se mueve y se alimenta en el medio ambiente.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 5: ")
+        pregunta5 = input("5. ¿Qué es una cancion? ")
+        if pregunta5 == "Una cancion es una composicion de notas musicales que se reproduce en una melodia.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("El resultado del test es: " + str(puntos))
+    test_conocimiento()
+
+    #funcion que realice un test de conocimiento con 5 preguntas(usar las mas famosas que se encuentran en internet) y si la respuesta es correcta o no asignarle 1 punto por cada si y 0 por cada no y mostrar al final un mensaje que diga gracias por participar
+    import os
+    os.system("cls")
+    def test_conocimiento():
+        import os
+        os.system("cls")
+        print("Ingrese la respuesta a la pregunta 1: ")
+        pregunta1 = input("1. Dequé se alimenta una IA ")
+        if pregunta1 == "Una IA se alimenta de datos.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")   
+        print("Ingrese la respuesta a la pregunta 2: ")
+        pregunta2 = input("2. Que pasa cuando una IA se alimenta de datos ")
+        if pregunta2 == "Cuando una IA se alimenta de datos, se le entrega una serie de datos para que la IA pueda procesar.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 3: ")
+        pregunta3 = input("3. IA es un peligro")
+        if pregunta3 == "Una IA es un peligro porque puede causar daños a la computadora.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 4: ")
+        pregunta4 = input("4. cuantos datos se entregan a una IA ")
+        if pregunta4 == "Una IA se alimenta de datos.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("Ingrese la respuesta a la pregunta 5: ")
+        pregunta5 = input("5. ¿Qué es una IA? ")
+        if pregunta5 == "Una IA es una computadora que se mueve y se alimenta en el medio ambiente.":
+            print("Respuesta correcta")
+            puntos = puntos + 1
+        else:
+            print("Respuesta incorrecta")
+        print("El resultado del test es: " + str(puntos))
+    test_conocimiento()
+    print("Gracias por participar")
+    print("Gracias por participar")
     
 
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+        
+
+
+
+
+    
 
 
 
