@@ -746,15 +746,341 @@
         } #mientras no se haya reservado ningun asiento  
         echo "El precio total de la reserva es de $precio_total euros."; #muestra el precio total de la reserva 
     } #fin de la funcion asientos_reservados 
+
+
+#horario de la pelicula segun la hora de la reserva  (hora de la reserva, hora de la pelicula, hora de la pelicula + duracion de la pelicula)
+    function horario_pelicula(){
+        echo "Introduce la hora de la reserva: "; #pide la hora de la reserva 
+        $hora_reserva = trim(fgets(STDIN)); #guarda la hora de la reserva  (hora de la reserva)
+        echo "Introduce la hora de la pelicula: "; #pide la hora de la pelicula  (hora de la pelicula)
+        $hora_pelicula = trim(fgets(STDIN)); #guarda la hora de la pelicula  (hora de la pelicula) 
+        echo "Introduce la duracion de la pelicula: "; #pide la duracion de la pelicula  (duracion de la pelicula)
+        $duracion_pelicula = trim(fgets(STDIN)); #guarda la duracion de la pelicula  (duracion de la pelicula) 
+        $hora_pelicula_final = $hora_pelicula + $duracion_pelicula; #calcula la hora de la pelicula final  (hora de la pelicula + duracion de la pelicula)
+        if($hora_reserva >= $hora_pelicula && $hora_reserva <= $hora_pelicula_final){ #si la hora de la reserva esta entre la hora de la pelicula y la hora de la pelicula + duracion de la pelicula 
+            echo "La pelicula se empieza a ver a las $hora_pelicula y durara $duracion_pelicula horas."; #muestra la hora de la pelicula y la duracion de la pelicula
+        }else{ #si la hora de la reserva no esta entre la hora de la pelicula y la hora de la pelicula + duracion de la pelicula 
+            echo "La pelicula no se empieza a ver a las $hora_pelicula y durara $duracion_pelicula horas."; #muestra la hora de la pelicula y la duracion de la pelicula
+        } #si la hora de la reserva no esta entre la hora de la pelicula y la hora de la pelicula + duracion de la pelicula 
+    } #fin de la funcion horario_pelicula
+
+#combo de palomitas y bebidas segun edad aplicar descuento 
+    function combo_palomitas_bebidas(){ #funcion combo_palomitas_bebidas
+        echo "Introduce tu edad: "; #pide la edad 
+        $edad = trim(fgets(STDIN)); #guarda la edad 
+        if($edad >= 18 && $edad <= 65){ #si la edad esta entre 18 y 65 
+            echo "El precio del combo de palomitas y bebidas es de 10 euros."; #muestra el precio del combo de palomitas y bebidas 
+        }else{ #si la edad no esta entre 18 y 65 
+            echo "El precio del combo de palomitas y bebidas es de 5 euros."; #muestra el precio del combo de palomitas y bebidas 
+        } #si la edad no esta entre 18 y 65 
+    } #fin de la funcion combo_palomitas_bebidas 
+
+#llenar datos si se paga con tarjeta de credito guardar datos en un array e imprimir los datos en una tabla que se guarde en un archivo
+    function tarjeta_credito(){ #funcion tarjeta_credito
+        $datos = array(); #array para guardar los datos 
+        echo "Introduce tu nombre: "; #pide el nombre 
+        $nombre = trim(fgets(STDIN)); #guarda el nombre  (nombre)
+        echo "Introduce tu apellido: "; #pide el apellido
+        $apellido = trim(fgets(STDIN)); #guarda el apellido  (apellido)
+        echo "Introduce tu numero de tarjeta de credito: "; #pide el numero de tarjeta de credito
+        $numero_tarjeta = trim(fgets(STDIN)); #guarda el numero de tarjeta de credito  (numero de tarjeta de credito)
+        echo "Introduce tu codigo de seguridad: "; #pide el codigo de seguridad
+        $codigo_seguridad = trim(fgets(STDIN)); #guarda el codigo de seguridad  (codigo de seguridad)
+        echo "Introduce tu mes de vencimiento: "; #pide el mes de vencimiento
+        $mes_vencimiento = trim(fgets(STDIN)); #guarda el mes de vencimiento  (mes de vencimiento)
+        echo "Introduce tu anio de vencimiento: "; #pide el anio de vencimiento
+        $anio_vencimiento = trim(fgets(STDIN)); #guarda el anio de vencimiento  (anio de vencimiento)
+        $datos = array($nombre, $apellido, $numero_tarjeta, $codigo_seguridad, $mes_vencimiento, $anio_vencimiento); #guarda los datos en un array
+        $archivo = fopen("tarjeta_credito.txt", "a"); #abre el archivo tarjeta_credito.txt para escribir en el archivo
+        fwrite($archivo, $datos[0]."\n"); #escribe el nombre en el archivo tarjeta_credito.txt
+        fwrite($archivo, $datos[1]."\n"); #escribe el apellido en el archivo tarjeta_credito.txt
+        fwrite($archivo, $datos[2]."\n"); #escribe el numero de tarjeta de credito en el archivo tarjeta_credito.txt
+        fwrite($archivo, $datos[3]."\n"); #escribe el codigo de seguridad en el archivo tarjeta_credito.txt
+        fwrite($archivo, $datos[4]."\n"); #escribe el mes de vencimiento en el archivo tarjeta_credito.txt
+        fwrite($archivo, $datos[5]."\n"); #escribe el anio de vencimiento en el archivo tarjeta_credito.txt
+        fclose($archivo); #cierra el archivo tarjeta_credito.txt
+        $archivo = fopen("tarjeta_credito.txt", "r"); #abre el archivo tarjeta_credito.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de tarjeta de credito</td><td>Codigo de seguridad</td><td>Mes de vencimiento</td><td>Anio de vencimiento</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo tarjeta_credito.txt 
+    } #fin de la funcion tarjeta_credito
+
+
+#llenar datos de un contacto guardar datos en un array e imprimir los datos en una tabla que se guarde en un archivo
+    function contacto(){ #funcion contacto
+        $datos = array(); #array para guardar los datos 
+        echo "Introduce tu nombre: "; #pide el nombre 
+        $nombre = trim(fgets(STDIN)); #guarda el nombre  (nombre)
+        echo "Introduce tu apellido: "; #pide el apellido
+        $apellido = trim(fgets(STDIN)); #guarda el apellido  (apellido)
+        echo "Introduce tu numero de telefono: "; #pide el numero de telefono
+        $numero_telefono = trim(fgets(STDIN)); #guarda el numero de telefono  (numero de telefono)
+        echo "Introduce tu email: "; #pide el email
+        $email = trim(fgets(STDIN)); #guarda el email  (email)
+        $datos = array($nombre, $apellido, $numero_telefono, $email); #guarda los datos en un array
+        $archivo = fopen("contacto.txt", "a"); #abre el archivo contacto.txt para escribir en el archivo
+        fwrite($archivo, $datos[0]."\n"); #escribe el nombre en el archivo contacto.txt
+        fwrite($archivo, $datos[1]."\n"); #escribe el apellido en el archivo contacto.txt
+        fwrite($archivo, $datos[2]."\n"); #escribe el numero de telefono en el archivo contacto.txt
+        fwrite($archivo, $datos[3]."\n"); #escribe el email en el archivo contacto.txt
+        fclose($archivo); #cierra el archivo contacto.txt
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+    } #fin de la funcion contacto
+
+
+#almacenar la fecha y hora de una llamada guardar datos en un array guardar los datos en un archivo y sobreescribir el archivo añadiendo informacion nueva al final de este
+    function llamada(){ #funcion llamada  
+
+        $datos = array(); #array para guardar los datos
+        echo "Introduce tu nombre: "; #pide el nombre
+        $nombre = trim(fgets(STDIN)); #guarda el nombre  (nombre)
+        echo "Introduce tu apellido: "; #pide el apellido
+        $apellido = trim(fgets(STDIN)); #guarda el apellido  (apellido)
+        echo "Introduce tu numero de telefono: "; #pide el numero de telefono
+        $numero_telefono = trim(fgets(STDIN)); #guarda el numero de telefono  (numero de telefono)
+        echo "Introduce tu email: "; #pide el email
+        $email = trim(fgets(STDIN)); #guarda el email  (email)
+        echo "Introduce tu fecha de llamada: "; #pide la fecha de llamada
+        $fecha_llamada = trim(fgets(STDIN)); #guarda la fecha de llamada  (fecha de llamada)
+        echo "Introduce tu hora de llamada: "; #pide la hora de llamada
+        $hora_llamada = trim(fgets(STDIN)); #guarda la hora de llamada  (hora de llamada)
+        $datos = array($nombre, $apellido, $numero_telefono, $email, $fecha_llamada, $hora_llamada); #guarda los datos en un array
+        $archivo = fopen("llamada.txt", "a"); #abre el archivo llamada.txt para escribir en el archivo
+        fwrite($archivo, $datos[0]."\n"); #escribe el nombre en el archivo llamada.txt
+        fwrite($archivo, $datos[1]."\n"); #escribe el apellido en el archivo llamada.txt
+        fwrite($archivo, $datos[2]."\n"); #escribe el numero de telefono en el archivo llamada.txt
+        fwrite($archivo, $datos[3]."\n"); #escribe el email en el archivo llamada.txt
+        fwrite($archivo, $datos[4]."\n"); #escribe la fecha de llamada en el archivo llamada.txt
+        fwrite($archivo, $datos[5]."\n"); #escribe la hora de llamada en el archivo llamada.txt
+        fclose($archivo); #cierra el archivo llamada.txt
+        $archivo = fopen("llamada.txt", "r"); #abre el archivo llamada.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td><td>Fecha de llamada</td><td>Hora de llamada</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo llamada.txt
+    } #fin de la funcion llamada
+
+#cargar en una tabla los datos de un archivo y mostrarla en pantalla
+    function contacto_archivo(){ #funcion contacto_archivo  
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+    } #fin de la funcion contacto_archivo 
+
+#borrar los datos de una fila de una tabla 
+    function borrar_contacto(){ #funcion borrar_contacto  
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+        echo "Introduce el numero de telefono que deseas borrar: "; #pide el numero de telefono que deseas borrar
+        $numero_telefono = trim(fgets(STDIN)); #guarda el numero de telefono  (numero de telefono)
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        $archivo_nuevo = fopen("contacto_nuevo.txt", "a"); #abre el archivo contacto_nuevo.txt para escribir en el archivo
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            if($linea != $numero_telefono."\n"){ #si la linea no es igual al numero de telefono 
+                fwrite($archivo_nuevo, $linea); #escribe la linea en el archivo contacto_nuevo.txt
+            } #si la linea no es igual al numero de telefono 
+        } #mientras no se llegue al final del archivo
+        fclose($archivo); #cierra el archivo contacto.txt 
+        fclose($archivo_nuevo); #cierra el archivo contacto_nuevo.txt
+        unlink("contacto.txt"); #borra el archivo contacto.txt
+        rename("contacto_nuevo.txt", "contacto.txt"); #renombra el archivo contacto_nuevo.txt a contacto.txt
+    } #fin de la funcion borrar_contacto
+
+#convertir archivo a pdf
+    function convertir_pdf(){ #funcion convertir_pdf  
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        $archivo_nuevo = fopen("contacto_nuevo.txt", "a"); #abre el archivo contacto_nuevo.txt para escribir en el archivo
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            fwrite($archivo_nuevo, $linea); #escribe la linea en el archivo contacto_nuevo.txt
+        } #mientras no se llegue al final del archivo
+        fclose($archivo); #cierra el archivo contacto.txt
+        fclose($archivo_nuevo); #cierra el archivo contacto_nuevo.txt
+        unlink("contacto.txt"); #borra el archivo contacto.txt
+        rename("contacto_nuevo.txt", "contacto.txt"); #renombra el archivo contacto_nuevo.txt a contacto.txt
+    } #fin de la funcion convertir_pdf
+
+#convertir archivo .txt a archivo binario
+    function convertir_binario(){ #funcion convertir_binario  
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        $archivo_nuevo = fopen("contacto_nuevo.txt", "a"); #abre el archivo contacto_nuevo.txt para escribir en el archivo
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            fwrite($archivo_nuevo, $linea); #escribe la linea en el archivo contacto_nuevo.txt
+        } #mientras no se llegue al final del archivo
+        fclose($archivo); #cierra el archivo contacto.txt
+        fclose($archivo_nuevo); #cierra el archivo contacto_nuevo.txt
+        unlink("contacto.txt"); #borra el archivo contacto.txt
+        rename("contacto_nuevo.txt", "contacto.txt"); #renombra el archivo contacto_nuevo.txt a contacto.txt
+    } #fin de la funcion convertir_binario
+
+
+#usar enumerar para guardar listado de productos en un archivo al momento de hacer una compra y mostrarlo en una tabla
+    function enumerar(){ #funcion enumerar  
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Nombre</td><td>Apellido</td><td>Numero de telefono</td><td>Email</td></tr>"; #muestra la tabla con los datos
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            echo "<tr><td>$linea</td></tr>"; #muestra la linea del archivo 
+        } #mientras no se llegue al final del archivo
+        echo "</table>"; #cierra la tabla
+        fclose($archivo); #cierra el archivo contacto.txt
+        $archivo = fopen("contacto.txt", "r"); #abre el archivo contacto.txt para leer el archivo
+        $archivo_nuevo = fopen("contacto_nuevo.txt", "a"); #abre el archivo contacto_nuevo.txt para escribir en el archivo
+        while(!feof($archivo)){ #mientras no se llegue al final del archivo 
+            $linea = fgets($archivo); #lee la linea del archivo 
+            fwrite($archivo_nuevo, $linea); #escribe la linea en el archivo contacto_nuevo.txt
+        } #mientras no se llegue al final del archivo
+        fclose($archivo); #cierra el archivo contacto.txt
+        fclose($archivo_nuevo); #cierra el archivo contacto_nuevo.txt
+        unlink("contacto.txt"); #borra el archivo contacto.txt
+        rename("contacto_nuevo.txt", "contacto.txt"); #renombra el archivo contacto_nuevo.txt a contacto.txt
+    } #fin de la funcion enumerar
+
+#calculadora
+    function calculadora(){ #funcion calculadora  
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Numero 1</td><td><input type='text' name='num1'></td></tr>"; #muestra la tabla con los datos
+        echo "<tr><td>Numero 2</td><td><input type='text' name='num2'></td></tr>"; #muestra la tabla con los datos
+        echo "<tr><td>Operacion</td><td><select name='operacion'>"; #muestra la tabla con los datos
+        echo "<option value='suma'>Suma</option>"; #muestra la tabla con los datos
+        echo "<option value='resta'>Resta</option>"; #muestra la tabla con los datos
+        echo "<option value='multiplicacion'>Multiplicacion</option>"; #muestra la tabla con los datos
+        echo "<option value='division'>Division</option>"; #muestra la tabla con los datos
+        echo "</select></td></tr>"; #muestra la tabla con los datos
+        echo "<tr><td><input type='submit' value='Calcular'></td></tr>"; #muestra la tabla con los datos
+        echo "</table>"; #cierra la tabla
+        echo "</form>"; #cierra el formulario
+    } #fin de la funcion calculadora
+
+#conversion de numeros naturales a binarios
+    function binario(){ #funcion binario  
+        echo "<form action='binario.php' method='post'>"; #abre el formulario
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Numero</td><td><input type='text' name='num'></td></tr>"; #muestra la tabla con los datos
+        echo "<tr><td><input type='submit' value='Convertir'></td></tr>"; #muestra la tabla con los datos
+        echo "</table>"; #cierra la tabla
+        echo "</form>"; #cierra el formulario
+    } #fin de la funcion binario
+
+#convertir numero ingresado a numero binario
+    function convertir_binarioo(){ #funcion convertir_binario  
+        $num = $_POST['num']; #obtiene el numero ingresado en el formulario
+        $num_binario = decbin($num); #convierte el numero ingresado a numero binario y lo guarda en la variable $num_binario
+        echo "El numero $num en binario es $num_binario"; #muestra el numero binario 
+    } #fin de la funcion convertir_binario 
+#mostrar en pantalla el numero ingresado y su conversion en una tabla
+    function mostrar_numero(){ #funcion mostrar_numero  
+        $num = $_POST['num']; #obtiene el numero ingresado en el formulario
+        $num_binario = decbin($num); #convierte el numero ingresado a numero binario y lo guarda en la variable $num_binario
+        echo "<table border='1'>"; #abre la tabla
+        echo "<tr><td>Numero</td><td>$num</td></tr>"; #muestra la tabla con los datos
+        echo "<tr><td>Numero binario</td><td>$num_binario</td></tr>"; #muestra la tabla con los datos
+        echo "</table>"; #cierra la tabla
+    } #fin de la funcion mostrar_numero
+
+#decir que signo zodiacal es el dia de la fecha ingresada por el usuario
+    function zodiacal(){ #funcion zodiacal  
+        $dia = $_POST['dia']; #obtiene el dia ingresado en el formulario
+        $mes = $_POST['mes']; #obtiene el mes ingresado en el formulario
+        $anio = $_POST['anio']; #obtiene el año ingresado en el formulario
+        $signo = ""; #declara la variable signo
+        if($mes == 1 && $dia <= 20){ #si el mes es 1 y el dia es menor o igual a 20
+            $signo = "Capricornio"; #el signo es capricornio
+        } #fin de la condicion 
+        elseif($mes == 2 && $dia <= 19){ #si el mes es 2 y el dia es menor o igual a 19
+            $signo = "Capricornio"; #el signo es capricornio
+        } #fin de la condicion  
+        elseif($mes == 3 && $dia <= 21){ #si el mes es 3 y el dia es menor o igual a 21
+            $signo = "Aries"; #el signo es aries
+        } #fin de la condicion 
+        elseif($mes == 4 && $dia <= 20){ #si el mes es 4 y el dia es menor o igual a 20
+            $signo = "Aries"; #el signo es aries
+        } #fin de la condicion 
+        elseif($mes == 5 && $dia <= 21){ #si el mes es 5 y el dia es menor o igual a 21
+            $signo = "Tauro"; #el signo es tauro
+        } #fin de la condicion
+        elseif($mes == 6 && $dia <= 21){ #si el mes es 6 y el dia es menor o igual a 21
+            $signo = "Tauro"; #el signo es tauro
+        } #fin de la condicion
+        elseif($mes == 7 && $dia <= 23){ #si el mes es 7 y el dia es menor o igual a 23
+            $signo = "Geminis"; #el signo es geminis
+        } #fin de la condicion
+        elseif($mes == 8 && $dia <= 23){ #si el mes es 8 y el dia es menor o igual a 23
+            $signo = "Geminis"; #el signo es geminis
+        } #fin de la condicion
+        elseif($mes == 9 && $dia <= 23){ #si el mes es 9 y el dia es menor o igual a 23
+            $signo = "Cancer"; #el signo es cancer
+        } #fin de la condicion 
+        elseif($mes == 10 && $dia <= 23){ #si el mes es 10 y el dia es menor o igual a 23
+            $signo = "Cancer"; #el signo es cancer
+        } #fin de la condicion 
+        elseif($mes == 11 && $dia <= 22){ #si el mes es 11 y el dia es menor o igual a 22
+            $signo = "Leo"; #el signo es leo
+        } #fin de la condicion 
+        elseif($mes == 12 && $dia <= 22){ #si el mes es 12 y el dia es menor o igual a 22 
+            $signo = "Leo"; #el signo es leo  y muestra el signo en pantalla
+        } #fin de la condicion
+        else{ #si no cumple ninguna condicion
+            $signo = "Fecha incorrecta"; #el signo es incorrecto 
+        } #fin de la condicion 
+        echo "El signo zodiacal del dia $dia/$mes/$anio es $signo"; #muestra el signo en pantalla 
+    } #fin de la funcion zodiacal
+
     
 
-
-
-
-
-
-         
-
+   
 
 
        
