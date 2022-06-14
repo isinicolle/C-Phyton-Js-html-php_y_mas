@@ -222,7 +222,8 @@ def ejercicio13():
         print("Descuento de 20%")
     else:
         print("No tiene descuento")
-    total = int(    if numero == 1:
+    total = 0
+    if numero == 1:
         total = total + 100
         print("El total a pagar es: ", total)
     elif numero == 2:
@@ -236,7 +237,7 @@ def ejercicio13():
         print("El total a pagar es: ", total)
     elif numero == 5:
         total = total + 500
-        print("El total a pagar es: ", total))
+        print("El total a pagar es: ", total)
     if edad > 60:
         total = total - (total * 0.2)
         print("El total a pagar es: ", total)
