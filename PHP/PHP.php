@@ -173,6 +173,76 @@
 
     echo "<br>";
 
+#ejercicio de pedir cantidad de personas a votar y mostrar la cantidad de votos que recibieron cada una de las personas
+    function votos($cantidad){
+        $contador = 0;
+        for($i = 1; $i <= $cantidad; $i++){
+            echo "Ingrese su voto: ";
+            $voto = fgets(STDIN);
+            if($voto == 1){
+                $contador++;
+            }
+        }
+        return $contador;
+    }
+
+    echo "La cantidad de votos que recibieron las personas es: " . votos(5);
+
+    echo "<br>";
+
+#ejercicio que muestre la cantidad de personas a votar y la cantidad de presidentes para votar , meustre en un histograma en consolas cuantas personas votaron por los presidentes , el resultado final debe concordar con la cantidad de personas que fue ingresadas para votar
+    function presidentes($cantidad){
+        $contador = 0;
+        for($i = 1; $i <= $cantidad; $i++){
+            echo "Ingrese su voto: ";
+            $voto = fgets(STDIN);
+            if($voto == 1){
+                $contador++;
+            }
+        }
+        return $contador;
+    }
+
+    echo "La cantidad de votos que recibieron las personas es: " . presidentes(5);
+
+    echo "<br>";
+
+#pedir por consola una cantidad de personas , luego en una estructura qu econtenga nombre,apellido y edad rellenar los datos de la cantidad de persoans ingresadas previamente
+    function persona($cantidad){
+        $personas = array();
+        for($i = 1; $i <= $cantidad; $i++){
+            echo "Ingrese su nombre: ";
+            $nombre = fgets(STDIN);
+            echo "Ingrese su apellido: ";
+            $apellido = fgets(STDIN);
+            echo "Ingrese su edad: ";
+            $edad = fgets(STDIN);
+            $personas[$i] = array("nombre" => $nombre, "apellido" => $apellido, "edad" => $edad);
+        }
+        return $personas;
+    }
+
+    echo "La cantidad de personas que ingresaron es: " . count(persona(5));
+
+    echo "<br>";
+#mostrar los datos de resultado del ejercicio anterior en una tabla
+    function mostrar($personas){
+        echo "<table border='1'>";
+        echo "<tr>";
+        echo "<td>Nombre</td>";
+        echo "<td>Apellido</td>";
+        echo "<td>Edad</td>";
+        echo "</tr>";
+        foreach($personas as $persona){
+            echo "<tr>";
+            echo "<td>" . $persona["nombre"] . "</td>";
+            echo "<td>" . $persona["apellido"] . "</td>";
+            echo "<td>" . $persona["edad"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+#pedir por consola una cantidad de personas , luego en una estructura qu econtenga nombre,apellido y edad rellenar los datos de la cantidad de persoans ingresadas previamente al final mostrarlos en uan tabla
 
 
 ?>
