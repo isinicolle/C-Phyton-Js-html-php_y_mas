@@ -1,4 +1,5 @@
 from collections import abc
+import random
 import tkinter as tk
 from tkinter import filedialog
 import os.path
@@ -1763,7 +1764,219 @@ def ejercicio50():
         print("El resultado de la conversion a decimal es: " + str(int(ip, 2)))
     decimal_ip()
 
+#convertir una letra a binario
+    import os
+    os.system("cls")
+    def letra_binario():
+        import os
+        os.system("cls")
+        print("Ingrese la letra: ")
+        letra = input()
+        print("El resultado de la conversion a binario es: " + str(bin(letra)))
+    letra_binario()
+
+#convertir una palabra a binario
+    import os
+    os.system("cls")
+    def palabra_binario():
+        import os
+        os.system("cls")
+        print("Ingrese la palabra: ")
+        palabra = input()
+        print("El resultado de la conversion a binario es: " + str(bin(palabra)))
+    palabra_binario()
+
+    #generador de numeros binarios aleatorios
+    import os
+    os.system("cls")
+    def binario_aleatorio():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        for i in range(cantidad):
+            print(bin(random.randint(0, 100)))
+    binario_aleatorio()
+
+
+    #usando numeros binarios aleatorios para generar una ip
+    import os
+    os.system("cls")
+    def ip_aleatorio():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        for i in range(cantidad):
+            print(bin(random.randint(0, 100))) 
+    ip_aleatorio()
+
+    #generando numeros binarios aleatorios almacenelo en una lista
+    import os
+    os.system("cls")
+    def binario_aleatorio_lista():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(bin(random.randint(0, 100)))
+        print(lista)
+    binario_aleatorio_lista()
+
+    #generando numeros binarios aleatorios almacenelo en una tupla
+    import os
+    os.system("cls")
+    def binario_aleatorio_tupla():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        tupla = ()
+        for i in range(cantidad):
+            tupla = tupla + (bin(random.randint(0, 100)),)
+        print(tupla)
+    binario_aleatorio_tupla()
+
+    #generando numeros binarios aleatorios almacenelo en una lista y conviertalo a letras
+    import os
+    os.system("cls")
+    def binario_aleatorio_lista_letras():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(bin(random.randint(0, 100)))
+        print(lista)
+        for i in lista:
+            print(chr(int(i, 2)))
+    binario_aleatorio_lista_letras()
+
+    #generando numeros binarios aleatorios cree un parrafo y conviertalo a letras
+    import os
+    os.system("cls")
+    def binario_aleatorio_parrafo():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(bin(random.randint(0, 100)))
+        print(lista)
+        for i in lista:
+            print(chr(int(i, 2)))
+    binario_aleatorio_parrafo()
+
+    #ingrese una palabra y que la narre el narrador de la computadora
+    import os
+    os.system("cls")
+    def narrador():
+        import os
+        os.system("cls")
+        print("Ingrese la palabra: ")
+        palabra = input()
+        for i in palabra:
+            print(chr(int(i, 2)))
+    narrador()
+
+    #usando foreach para generar una lista de numeros aleatorios
+    import os
+    os.system("cls")
+    def foreach():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros aleatorios: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(bin(random.randint(0, 100)))
+        print(lista)
+        for i in lista:
+            print(chr(int(i, 2)))
+    foreach()
+
+    #instancear una clase llamada conexion y hacer una instancia de ella para conectarme a la base de datos de mysql y hacer una consulta de la base de datos de mysql utilizar try catch para capturar errores
+    import os
+    import mysql.connector
+    os.system("cls")
+    def conexion():
+        import os
+        os.system("cls")
+        try:
+            import mysql.connector
+            conexion = mysql.connector.connect(host="localhost", user="root", passwd="", database="prueba")
+            cursor = conexion.cursor()
+            cursor.execute("SELECT * FROM prueba")
+            for i in cursor:
+                print(i)
+        except:
+            print("Error")
+    conexion()
+
+    #hacer una clase que se llame persona que almacene nombre y edad , almacenar el nombre de 100 personas y mostrar la edad de cada una de ellas con foreach al final mostrar la edad promedio , la edad mas alta y la edad mas baja y cuantas personas tienen la edad promedio de la lista
+    import os
+    os.system("cls")
+    def persona():
+        import os
+        os.system("cls")
+        class Persona:
+            def __init__(self, nombre, edad):
+                self.nombre = nombre
+                self.edad = edad
+        lista = []
+        for i in range(100):
+            lista.append(Persona(input("Ingrese el nombre: "), random.randint(0, 100)))
+        for i in lista:
+            print(i.nombre + " " + str(i.edad))
+        edad_promedio = 0
+        for i in lista:
+            edad_promedio = edad_promedio + i.edad
+        print("La edad promedio es: " + str(edad_promedio / len(lista)))
+        edad_alta = 0
+        for i in lista:
+            if i.edad > edad_alta:
+                edad_alta = i.edad
+        print("La edad mas alta es: " + str(edad_alta))
+        edad_baja = 100
+        for i in lista:
+            if i.edad < edad_baja:
+                edad_baja = i.edad
+        print("La edad mas baja es: " + str(edad_baja))
+        cantidad = 0
+        for i in lista:
+            if i.edad == edad_promedio:
+                cantidad = cantidad + 1
+        print("La cantidad de personas con la edad promedio es: " + str(cantidad))
+    persona()
+
+    #calcular la distribucion de probabilidad de una lista de numeros 
+    import os
+    os.system("cls")
+    def distribucion():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(random.randint(0, 100))
+        print(lista)
+        for i in range(100):
+            cantidad = 0
+            for j in lista:
+                if j == i:
+                    cantidad = cantidad + 1
+            print(str(i) + " " + str(cantidad))
+    distribucion()
+
     
+
+    
+
 
 
     
