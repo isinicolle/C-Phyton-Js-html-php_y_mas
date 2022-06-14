@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+<body>
+
+    <!--Agregarle estilo con css al menu de navegacion-->
+    <style>
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /*darle estilo al div class info*/
+        .info {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        /*darle estilo al div class contenido*/
+        .contenido {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        
+
+        /*hacer que el div class info sea en columnas y responsive*/
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /*tabla con estilo bonito y responsive*/
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+
+        /*crear un estilo color pastel y responsive para formularios*/
+        .formulario {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .formulario input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .formulario button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .formulario button:hover {
+            background-color: #45a049;
+        }
+
+        .formulario .error {
+            color: red;
+        }
+
+        .formulario .exito {
+            color: green;
+        }
+
+        
+
+
+
+     </style>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ejercicio.html">Ejercicio</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="tabla.html">Tabla</a></li>
+            <li><a href="estilos.html">Estilos</a></li>
+        </ul>
+    </nav>
+
+  <!--crear un titulo y parrafo sobre la IA dentro de un contenedor llamado info-->
+    <div class="info">
+    <h1>IA</h1>
+    <p>
+        La Inteligencia Artificial es una tecnología que se utiliza para programar robots,
+        computadores, máquinas de estado, etc. que sean capaces de realizar tareas automáticas.
+        La IA es una tecnología que se utiliza para programar robots, computadores, máquinas de estado, etc.
+        que sean capaces de realizar tareas automáticas.
+    </p>
+    </div>
+
+    <!--crear un formulario con boton de enviar el formulario debe tener el campo de nombre y edad el formulario debe estar validado-->
+
+    <div class="formulario">
+        <form action="ejercicio.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" required>
+            <label for="edad">Edad:</label>
+            <input type="number" name="edad" id="edad" required>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+
+    <!---->
+
+
+
+
+
+
+ 
+
+
+
+
+
+    
+</body>
+</html>

@@ -16,5 +16,18 @@
         <input type="number" name="edad" id="edad">
         <input type="submit" value="Enviar">
     </form>
+    
+    <?php
+    //Recibir datos del formulario
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $edad = $_POST['edad'];
+    echo "Nombre: $nombre<br>";
+    echo "Apellido: $apellido<br>";
+    echo "Edad: $edad<br>";
+    ?>
+
+    
+
 </body>
 </html>
