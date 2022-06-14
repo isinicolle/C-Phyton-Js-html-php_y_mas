@@ -1973,7 +1973,142 @@ def ejercicio50():
             print(str(i) + " " + str(cantidad))
     distribucion()
 
+    #diagrama de barras de una lista de numeros y mostrar la cantidad de numeros que estan en cada rango de la lista y la cantidad total de numeros y graficarlo
+    import os
+    os.system("cls")
+    def diagrama():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(random.randint(0, 100))
+        print(lista)
+        for i in range(100):
+            cantidad = 0
+            for j in lista:
+                if j == i:
+                    cantidad = cantidad + 1
+            print(str(i) + " " + str(cantidad))
+        print("La cantidad total de numeros es: " + str(len(lista)))
+        import matplotlib.pyplot as plt
+        import numpy as np
+        plt.bar(lista, np.arange(len(lista)))
+        plt.show()
+    diagrama()
+
+    #ingresar 5 numeros y hacer un diagrama de barras
+    import os
+    os.system("cls")
+    def diagrama_5():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(random.randint(0, 100))
+        print(lista)
+        for i in range(100):
+            cantidad = 0
+            for j in lista:
+                if j == i:
+                    cantidad = cantidad + 1
+            print(str(i) + " " + str(cantidad))
+        print("La cantidad total de numeros es: " + str(len(lista)))
+        import matplotlib.pyplot as plt
+        import numpy as np
+        plt.bar(lista, np.arange(len(lista)))
+        plt.show()
+    diagrama_5()
+
+    #diagrama de venn
+    import os
+    os.system("cls")
+    def diagrama_venn():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de numeros: ")
+        cantidad = int(input())
+        lista = []
+        for i in range(cantidad):
+            lista.append(random.randint(0, 100))
+        print(lista)
+        for i in range(100):
+            cantidad = 0
+            for j in lista:
+                if j == i:
+                    cantidad = cantidad + 1
+            print(str(i) + " " + str(cantidad))
+        print("La cantidad total de numeros es: " + str(len(lista)))
+        import matplotlib.pyplot as plt
+        import numpy as np
+        plt.bar(lista, np.arange(len(lista)))
+        plt.show()
+    diagrama_venn()
+
+    #ver a tiempo real casos de covid en el mundo
+    import os
+    os.system("cls")
+    def covid():
+        import os
+        os.system("cls")
+        import requests
+        import json
+        url = "https://api.covid19api.com/summary"
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for i in data["Countries"]:
+            print(i["Country"] + " " + str(i["TotalConfirmed"]))
+    covid()
+
+    #ver a tiempo real la cantidad de muertes en el mundo por dia
+    import os
+    os.system("cls")
+    def muertes():
+        import os
+        os.system("cls")
+        import requests
+        import json
+        url = "https://api.covid19api.com/summary"
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for i in data["Countries"]:
+            print(i["Country"] + " " + str(i["TotalDeaths"]))
+        muertes()
+
+#una lista que despligue el nombre de todos los paises del mundo y al seleccionar el pais que muestre otra lista de las ciudades de ese pais
+    import os
+    os.system("cls")
+    def paises():
+        import os
+        os.system("cls")
+        import requests
+        import json
+        url = "https://api.covid19api.com/summary"
+        response = requests.get(url)
+        data = json.loads(response.text)
+        lista = []
+        for i in data["Countries"]:
+            lista.append(i["Country"])
+        print(lista)
+        print("Seleccione el pais: ")
+        pais = input()
+        for i in data["Countries"]:
+            if i["Country"] == pais:
+                print(i["Country"] + " " + str(i["TotalConfirmed"]))
+                print(i["Country"] + " " + str(i["TotalDeaths"]))
+                print(i["Country"] + " " + str(i["TotalRecovered"]))
+                print(i["Country"] + " " + str(i["NewConfirmed"]))
+                print(i["Country"] + " " + str(i["NewDeaths"]))
+                print(i["Country"] + " " + str(i["NewRecovered"]))
+                print(i["Country"] + " " + str(i["Date"]))
+    paises()
     
+
+
+
 
     
 
