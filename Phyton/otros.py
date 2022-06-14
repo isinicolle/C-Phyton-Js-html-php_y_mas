@@ -1297,10 +1297,62 @@ def ejercicio50():
     plt.plot(tangente(1))
     plt.show()
 
-    
+#calcular el limite de una funcion y graficar el limite
+    import os
+    os.system("cls")
+    def limite(a):
+        limite = [math.tan(x) for x in range(0, 360, 1)]
+        return limite
+    print("El limite de la funcion es: " + str(limite(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(limite(1))
+    plt.show()
+
+#sacar la media,la moda ,la mediana, la desviacion estandar y la varianza de una funcion
+    import os
+    os.system("cls")
+    def media(a):
+        media = sum(a)/len(a)
+        return media
+    print("La media de la funcion es: " + str(media(1)))
+    def moda(a):
+        moda = max(set(a), key=a.count)
+        return moda
+    print("La moda de la funcion es: " + str(moda(1)))
+    def mediana(a):
+        mediana = sorted(a)
+        return mediana
+    print("La mediana de la funcion es: " + str(mediana(1)))
+    def desviacion(a):
+        desviacion = math.sqrt(sum([(x - media(a))**2 for x in a])/len(a))
+        return desviacion
+    print("La desviacion estandar de la funcion es: " + str(desviacion(1)))
+    def varianza(a):
+        varianza = sum([(x - media(a))**2 for x in a])/len(a)
+        return varianza
+    print("La varianza de la funcion es: " + str(varianza(1)))
+
+#calcular el voltaje de un circuito dependiendo si esta en serie o en paralelo
+
+    import os
+    os.system("cls")
+    def voltaje(a, b, c, d, e, f, g, h, i):
+        voltaje = [[a, b, c], [d, e, f], [g, h, i]]
+        return voltaje
+    print("El voltaje del circuito es: " + str(voltaje(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def voltaje_serie(a, b, c, d, e, f, g, h, i):
+        voltaje_serie = [[a, b, c], [d, e, f], [g, h, i]]
+        return voltaje_serie
+    print("El voltaje del circuito en serie es: " + str(voltaje_serie(1, 2, 3, 4, 5, 6, 7, 8, 9)))
+    def voltaje_paralelo(a, b, c, d, e, f, g, h, i):
+        voltaje_paralelo = [[a, b, c], [d, e, f], [g, h, i]]
+        return voltaje_paralelo
+    print("El voltaje del circuito en paralelo es: " + str(voltaje_paralelo(1, 2, 3, 4, 5, 6, 7, 8, 9)))
     
 
-
+    
    
 
 
