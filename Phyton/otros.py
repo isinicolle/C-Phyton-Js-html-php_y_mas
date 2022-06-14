@@ -245,6 +245,349 @@ def ejercicio13():
         print("El total a pagar es: ", total)
 
 
+#un centro de votacion tiene 3 canditados , cada candidato tiene un numero de votos mostrar el numero de votos de cada candidato de mayor a menor y almacenarlos en un archivo mostrar el resultado en pantalal con una tabla
+def ejercicio14():
+    votos = [0,0,0]
+    for i in votos:
+        print(i)
+    votos[0] = int(input("Ingrese el numero de votos del candidato 1: "))
+    votos[1] = int(input("Ingrese el numero de votos del candidato 2: "))
+    votos[2] = int(input("Ingrese el numero de votos del candidato 3: "))
+    for i in votos:
+        print(i)
+    with open("votos.txt", "w") as archivo:
+        for i in votos:
+            archivo.write(str(i) + "\n")
+    with open("votos.txt", "r") as archivo:
+        for i in archivo:
+            print(i)
+    votos.sort()
+    print("El candidato 1 tiene: ", votos[2])
+    print("El candidato 2 tiene: ", votos[1])
+    print("El candidato 3 tiene: ", votos[0])
+
+#almacenar en una clase llamada persona el nombre ,apellido  y edad del usuario utilizando poo
+def ejercicio15():
+    class Persona:
+        def __init__(self, nombre, apellido, edad):
+            self.nombre = nombre
+            self.apellido = apellido
+            self.edad = edad
+        def mostrar(self):
+            print("Nombre: ", self.nombre)
+            print("Apellido: ", self.apellido)
+            print("Edad: ", self.edad)
+    nombre = input("Ingrese el nombre: ")
+    apellido = input("Ingrese el apellido: ")
+    edad = int(input("Ingrese la edad: "))
+    persona = Persona(nombre, apellido, edad)
+    persona.mostrar()
+
+#el usuario le aparece en pantalla elegir entra la opcion 1 y 2 si elige la opcion 1 escoge amarillo si elige la opcion 2 escoge rojo segun la clase seleccionada el usuario llenara sus datos para una nueva clase , la clase amarillo va heredar de la clase persona y la clase rojo va heredar de la clase persona , la clase amarillo tiene un atributo llamado color que va a ser amarillo y la clase rojo tiene un atributo llamado color que va a ser rojo
+def ejercicio16():
+    class Persona:
+        def __init__(self, nombre, apellido, edad):
+            self.nombre = nombre
+            self.apellido = apellido
+            self.edad = edad
+        def mostrar(self):
+            print("Nombre: ", self.nombre)
+            print("Apellido: ", self.apellido)
+            print("Edad: ", self.edad)
+    class Amarillo(Persona):
+        def __init__(self, nombre, apellido, edad, color):
+            super().__init__(nombre, apellido, edad)
+            self.color = color
+        def mostrar(self):
+            print("Nombre: ", self.nombre)
+            print("Apellido: ", self.apellido)
+            print("Edad: ", self.edad)
+            print("Color: ", self.color)
+    class Rojo(Persona):
+        def __init__(self, nombre, apellido, edad, color):
+            super().__init__(nombre, apellido, edad)
+            self.color = color
+        def mostrar(self):
+            print("Nombre: ", self.nombre)
+            print("Apellido: ", self.apellido)
+            print("Edad: ", self.edad)
+            print("Color: ", self.color)
+    nombre = input("Ingrese el nombre: ")
+    apellido = input("Ingrese el apellido: ")
+    edad = int(input("Ingrese la edad: "))
+    color = input("Ingrese el color: ")
+    persona = Persona(nombre, apellido, edad)
+    amarillo = Amarillo(nombre, apellido, edad, color)
+    rojo = Rojo(nombre, apellido, edad, color)
+    opcion = int(input("Ingrese la opcion: "))
+    if opcion == 1:
+        amarillo.mostrar()
+    elif opcion == 2:
+        rojo.mostrar()
+
+#crear una base de datos sqlite3 con una tabla llamada persona con los atributos nombre , apellido y edad 
+def ejercicio17():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""CREATE TABLE persona(
+        nombre text,
+        apellido text,
+        edad integer
+        )""")
+    conexion.commit()
+    conexion.close()
+
+
+#en la base de datos almacenar la informacion que se almaceno en la clase persona del ejercicio16
+def ejercicio18():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    nombre = input("Ingrese el nombre: ")
+    apellido = input("Ingrese el apellido: ")
+    edad = int(input("Ingrese la edad: "))
+    cursor.execute("""INSERT INTO persona VALUES(?,?,?)""", (nombre, apellido, edad))
+    conexion.commit()
+    conexion.close()
+
+
+#mostrar la informacion almacenada en la base de datos
+def ejercicio19():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""SELECT * FROM persona""")
+    for i in cursor:
+        print(i)
+    conexion.close()
+
+
+#crear en la base de datos persona.db la tabla amarillo y rojo y almacenar la informacion de las clases heredadas del ejercicio 16
+def ejercicio20():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""CREATE TABLE amarillo(
+        nombre text,
+        apellido text,
+        edad integer,
+        color text
+        )""")
+    cursor.execute("""CREATE TABLE rojo(
+        nombre text,
+        apellido text,
+        edad integer,
+        color text
+        )""")
+    conexion.commit()
+    conexion.close()
+
+#guardar informacion almacenada en la base de datos en la tabla persona
+def ejercicio21():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""INSERT INTO persona VALUES(?,?,?)""", (nombre, apellido, edad))
+    conexion.commit()
+    conexion.close()
+
+#actualizar la informacion almacenada en la base de datos
+def ejercicio22():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""UPDATE persona SET nombre = 'Juan' WHERE nombre = 'Juan'""")
+    conexion.commit()
+    conexion.close()
+
+#eliminar la informacion almacenada en la base de datos
+def ejercicio23():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""DELETE FROM persona WHERE nombre = 'Juan'""")
+    conexion.commit()
+    conexion.close()
+
+#buscar la informacion almacenada en la base de datos segun el nombre 
+def ejercicio24():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""SELECT * FROM persona WHERE nombre = 'Juan'""")
+    for i in cursor:
+        print(i)
+    conexion.close()
+
+#eliminar todos los registros de la tabla de la base de datos
+def ejercicio25():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""DELETE FROM persona""")
+    conexion.commit()
+    conexion.close()
+
+#instancia de conexion de una base de datos en AWS
+def ejercicio26():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""CREATE TABLE persona(
+        nombre text,
+        apellido text,
+        edad integer
+        )""")
+    conexion.commit()
+    conexion.close()
+
+#borrar base de datos
+def ejercicio27():
+    import sqlite3
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""DROP TABLE persona""")
+    conexion.commit()
+    conexion.close()
+
+#guardar en un arreglo numero de telefono y nombre de persona
+def ejercicio28():
+    persona = []
+    nombre = input("Ingrese el nombre: ")
+    telefono = int(input("Ingrese el telefono: "))
+    persona.append(nombre)
+    persona.append(telefono)
+    return persona
+
+
+#pedir la cantidad de personas que desea ingresar y guardar la informacion en un arreglo e imprimir la informacion
+def ejercicio29():
+    persona = []
+    cantidad = int(input("Ingrese la cantidad de personas: "))
+    for i in range(cantidad):
+        nombre = input("Ingrese el nombre: ")
+        telefono = int(input("Ingrese el telefono: "))
+        persona.append(nombre)
+        persona.append(telefono)
+    return persona
+
+
+#convertir a json la informacion almacenada en el arreglo
+def ejercicio30():
+    import json
+    persona = []
+    cantidad = int(input("Ingrese la cantidad de personas: "))
+    for i in range(cantidad):
+        nombre = input("Ingrese el nombre: ")
+        telefono = int(input("Ingrese el telefono: "))
+        persona.append(nombre)
+        persona.append(telefono)
+    return json.dumps(persona)
+
+#la informacion del json utilizar el metodo , get,post y put para llevar la informacion a la base de datos
+def ejercicio31():
+    import sqlite3
+    import json
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""CREATE TABLE persona(
+        nombre text,
+        apellido text,
+        edad integer
+        )""")
+    conexion.commit()
+    conexion.close()
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""INSERT INTO persona VALUES(?,?,?)""", (nombre, apellido, edad))
+    conexion.commit()
+    conexion.close()
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""SELECT * FROM persona""")
+    for i in cursor:
+        print(i)
+    conexion.close()
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+    cursor.execute("""DELETE FROM persona""")
+    conexion.commit()
+    conexion.close()
+    conexion = sqlite3.connect("persona.db")
+    cursor = conexion.cursor()
+
+    #mostrar las peticiones que se han hecho a la base de datos
+    def ejercicio32():
+        import sqlite3
+        conexion = sqlite3.connect("persona.db")
+        cursor = conexion.cursor()
+        cursor.execute("""SELECT * FROM persona""")
+        for i in cursor:
+            print(i)
+        conexion.close()
+
+#por medio de una peticion con api rest mostrar la informacion de la base de datos
+def ejercicio33():
+    import requests
+    url = "http://localhost:5000/persona"
+    response = requests.get(url)
+    print(response.text)
+
+
+#por medio de una peticion con api rest agregar la informacion de la base de datos
+def ejercicio34():
+    import requests
+    url = "http://localhost:5000/persona"
+    response = requests.post(url, data={"nombre": "Juan", "apellido": "Perez", "edad": "20"})
+    print(response.text)
+
+#por medio de una peticion con api rest actualizar la informacion de la base de datos
+def ejercicio35():
+    import requests
+    url = "http://localhost:5000/persona/1"
+    response = requests.put(url, data={"nombre": "Juan", "apellido": "Perez", "edad": "20"})
+    print(response.text)
+
+#por medio de una peticion con api rest eliminar la informacion de la base de datos
+def ejercicio36():
+    import requests
+    url = "http://localhost:5000/persona/1"
+    response = requests.delete(url)
+    print(response.text)
+
+#por medio de una peticion con api rest buscar una persona en la base de datos
+def ejercicio37():
+    import requests
+    url = "http://localhost:5000/persona/1"
+    response = requests.get(url)
+    print(response.text) 
+
+
+#por medio de una peticion con api rest mostrar las personas de la base de datos en una tabla
+def ejercicio38():
+    import requests
+    url = "http://localhost:5000/persona"
+    response = requests.get(url)
+    print(response.text)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
