@@ -638,6 +638,104 @@ def ejercicio42():
             archivo.write(i[0] + i[1] + i[2] + "\n")
 
     
+#borrar los datos anteriores dejar pantalla vacia
+def ejercicio43():
+    import os
+    os.system("cls")
+
+#haga el programa de la torre de hanoi
+def ejercicio44():
+    import os
+    os.system("cls")
+    print("Torre de Hanoi")
+    print("1. Ingrese la cantidad de discos")
+    print("2. Ingrese la torre de origen")
+    print("3. Ingrese la torre de destino")
+    print("4. Ingrese la torre de auxiliar")
+    print("5. Salir")
+    opcion = int(input("Ingrese la opcion: "))
+    while opcion != 5:
+        if opcion == 1:
+            cantidad = int(input("Ingrese la cantidad de discos: "))
+            torre1 = []
+            torre2 = []
+            torre3 = []
+            for i in range(cantidad):
+                torre1.append(i + 1)
+            while len(torre1) != 0:
+                if len(torre1) == 1:
+                    torre3.append(torre1.pop())
+                    torre2.append(torre3.pop())
+                elif len(torre1) == 2:
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                elif len(torre1) == 3:
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                else:
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre3.append(torre1.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+                    torre2.append(torre3.pop())
+            print("Torre 1: " + str(torre1))
+            print("Torre 2: " + str(torre2))
+            print("Torre 3: " + str(torre3))
+        elif opcion == 2:
+            torre1 = []
+            torre2 = []
+            torre3 = []
+            cantidad = int(input("Ingrese la cantidad de discos: "))
+            for i in range(cantidad):
+                torre1.append(i + 1)
+            print("Torre 1: " + str(torre1))
+            print("Torre 2: " + str(torre2))
+            print("Torre 3: " + str(torre3))
+        elif opcion == 3:
+            torre1 = []
+            torre2 = []
+            torre3 = []
+            cantidad = int(input("Ingrese la cantidad de discos: "))
+            for i in range(cantidad):
+                torre1.append(i + 1)
+            print("Torre 1: " + str(torre1))
+            print("Torre 2: " + str(torre2))
+            print("Torre 3: " + str(torre3))
+        elif opcion == 4:
+            torre1 = []
+            torre2 = []
+            torre3 = []
+            cantidad = int(input("Ingrese la cantidad de discos: "))
+            for i in range(cantidad):
+                torre1.append(i + 1)
+            print("Torre 1: " + str(torre1))
+            print("Torre 2: " + str(torre2))
+            print("Torre 3: " + str(torre3))
+        else:
+            print("Opcion no valida")
+        print("1. Ingrese la cantidad de discos")
+        print("2. Ingrese la torre de origen")
+        print("3. Ingrese la torre de destino")
+        print("4. Ingrese la torre de auxiliar")
+        print("5. Salir")
+        opcion = int(input("Ingrese la opcion: "))
+
+    
+
+
 
 
 
