@@ -52,6 +52,10 @@
         $resultado = $peso / ($altura * $altura);
         return $resultado;
     }
+
+    echo "El indice de masa corporal de una persona es: " . imc(70, 1.70);
+
+    echo "<br>";
 #con el ejercicio anterior segundo el resultado del imc mostrar un  mensaje en que rango se encuentra su imc.
     function estado($imc){
         if($imc < 18.5){
@@ -70,6 +74,67 @@
         return $estado;
     }
 
-    
+    echo "El indice de masa corporal de una persona es: " . imc(70, 1.70) . " y su estado es: " . estado(imc(70, 1.70));
+
+    echo "<br>";
+
+#ejercicio que calcule el peso ideal de una eprsona segun el peso y altura que se ingrese
+    function pesoIdeal($peso, $altura){
+        $resultado = $peso / ($altura * $altura);
+        return $resultado;
+    }
+
+    echo "El peso ideal de una persona con un peso de 70kg y una altura de 1.70m es: " . pesoIdeal(70, 1.70);
+
+    echo "<br>";
+
+
+    #ejercicio que diga la cantidad de letras que tiene la palabra ingresada
+    function cantidadLetras($palabra){
+        $resultado = strlen($palabra);
+        return $resultado;
+    }
+
+    echo "La cantidad de letras que tiene la palabra 'Hola' es: " . cantidadLetras("Hola");
+
+    echo "<br>";
+
+    #ejercicio que diga segun imc si la persona padece un trastorno alimentario , si esta se encuentra en bajo peso categorizarla en anorexia nerviosa , si esta esta en obesidad categorizarlo en obesidad tipo 1 , si esta en obesidad tipo 2 o si esta en obesidad tipo 3 categorizarlo en trastorno por atracon , en caso de estar en normal categorizarlo en saludable
+    function trastorno($imc){
+        if($imc < 18.5){
+            $estado = "Anorexia nerviosa";
+        }elseif($imc >= 18.5 && $imc <= 24.9){
+            $estado = "Saludable";
+        }elseif($imc >= 25 && $imc <= 29.9){
+            $estado = "Trastorno por atracon";
+        }elseif($imc >= 30 && $imc <= 34.9){
+            $estado = "Trastorno por atracon";
+        }elseif($imc >= 35 && $imc <= 39.9){
+            $estado = "Trastorno por atracon";
+        }elseif($imc >= 40){
+            $estado = "Trastorno por atracon";
+        }
+        return $estado;
+    }
+
+    echo "El indice de masa corporal de una persona es: " . imc(70, 1.70) . " y su estado es: " . trastorno(imc(70, 1.70));
+
+    echo "<br>";
+
+    #ejercicio que diga si un numero es par o impar
+
+    function par($num){
+        if($num % 2 == 0){
+            $resultado = "El numero es par";
+        }else{
+            $resultado = "El numero es impar";
+        }
+        return $resultado;
+    }
+
+    echo "El numero 10 es: " . par(10);
+
+    echo "<br>";
+
 ?>
 
