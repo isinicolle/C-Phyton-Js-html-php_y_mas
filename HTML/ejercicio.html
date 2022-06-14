@@ -166,6 +166,66 @@
         }
 
         
+        /*hacer un diseño responsive del div class contenido que tiene adentro class row y class col-75 hacer que se vea bonito lo que esta en la linea de codigo 252 a la 333*/
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col-75 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col-25 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col-25, .col-75 {
+            width: 50%;
+            padding: 5px 10px;
+        }
+
+        .col-25 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .col-75 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .col-25, .col-75 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+     
+     
+
+     
+
+       
+
 
 
 
@@ -206,7 +266,142 @@
     </div>
 
 
-    <!---->
+    <!--tabla mostrando la cantidad de calorias de los dulces-->
+    <div class="contenido">
+        <table>
+            <tr>
+                <th>Dulces</th>
+                <th>Calorias</th>
+            </tr>
+            <tr>
+                <td>Chocolate</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>Chocolate con leche</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>Chocolate con vainilla</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>Chocolate con nuez</td>
+                <td>600</td>
+            </tr>
+            <tr>
+                <td>Chocolate con nuez y leche</td>
+                <td>700</td>
+            </tr>
+            <tr>
+                <td>Chocolate con nuez y vainilla</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>Chocolate con nuez y vainilla y leche</td>
+                <td>900</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--usando filas y columnas hacer un boletin informativo utilizando column y row para un posterior diseño responsive-->
+    <div class="contenido">
+        <div class="row">
+            <div class="col-75">
+                <div class="container">
+                    <form action="/action_page.php">
+                        <div class="row">
+                            <div class="col-50">
+                                <h3>Billing Address</h3>
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                <input type="text" id="email" name="email" placeholder="cCorreo"
+                                    required>
+                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                                <label for="city"><i class="fa fa-institution"></i> City</label>
+                                <input type="text" id="city" name="city" placeholder="New York">
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="state">State</label>
+                                        <input type="text" id="state" name="state" placeholder="NY">
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="zip">Zip</label>
+                                        <input type="text" id="zip" name="zip" placeholder="10001">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-50">
+                                <h3>Payment</h3>
+                                <label for="fname">Accepted Cards</label>
+                                <div class="icon-container">
+                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                </div>
+                                <label for="cname">Name on Card</label>
+                                <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                <label for="ccnum">Credit card number</label>
+                                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                <label for="expmonth">Exp Month</label>
+                                <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="expyear">Exp Year</label>
+                                        <input type="text" id="expyear" name="expyear" placeholder="2018">
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <label>
+                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as
+                            billing
+                        </label>
+                        <input type="submit" value="Continue to checkout" class="btn">
+                    </form>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="container">
+                    <h4>Cart
+                        <span class="price" style="color:black;">
+                            <i class="fa fa-shopping-cart"></i>
+                            <b>4</b>
+                        </span>
+                    </h4>
+                    <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+                    <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+                    <p><a href="#">Product 3</a> <span class="price">$10</span></p>
+                    <p><a href="#">Product 4</a> <span class="price">$25</span></p>
+                    <p><a href="#">Product 5</a> <span class="price">$2</span></p>
+                    <hr>
+                    <p>Total <span class="price" style="color:black;"><b>$40</b></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  
+
+
+    <!--crear un footer con enlace a las redes sociales-->
+    <footer>
+        <a href="https://www.facebook.com/">Facebook</a>
+        <a href="https://www.twitter.com/">Twitter</a>
+        <a href="https://www.instagram.com/">Instagram</a>
+    </footer>
+
 
 
 
