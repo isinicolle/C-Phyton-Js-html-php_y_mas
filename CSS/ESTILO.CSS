@@ -1,0 +1,59 @@
+/*aplicar estilo al body*/
+body {
+    background-color: #f2f2f2;
+}
+
+/*aplicar estilo al footer*/
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+/*aplicar estilo al navbar*/
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+/*aplicar estilo al boton*/
+.btn {
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+/*aplicar hover al boton*/
+.btn:hover {
+    background-color: #000;
+}
+
+/*aplicar hover al navbar*/
+.navbar a:hover {
+    background-color: #000 !important;
+}
+
+/*aplicar que los parrafos sean responsive*/
+.parrafo {
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/*aplicar estilo responsive para la pagina desde la computadora y celular*/
+@media only screen and (max-width: 768px) {
+    .parrafo {
+        font-size: 12px;
+    }
+}
+
+/*aplicar estilo responsive para la pagina desde celular*/
+@media only screen and (max-width: 480px) {
+    .parrafo {
+        font-size: 10px;
+    }
+}
+
