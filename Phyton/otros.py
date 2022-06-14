@@ -1591,6 +1591,95 @@ def ejercicio50():
     test_conocimiento()
     print("Gracias por participar")
     print("Gracias por participar")
+
+    #ejercicio de suma de numeros enteros
+    import os
+    os.system("cls")
+    def suma_numeros():
+        import os
+        os.system("cls")
+        print("Ingrese el numero 1: ")
+        numero1 = int(input())
+        print("Ingrese el numero 2: ")
+        numero2 = int(input())
+        print("El resultado de la suma es: " + str(numero1 + numero2))
+    suma_numeros()
+
+#ejercicio de subneteo de ip clase c
+    import os
+    os.system("cls")
+    def subneteo():
+        import os
+        os.system("cls")
+        print("Ingrese la ip: ")
+        ip = input()
+        print("Ingrese el numero de subredes: ")
+        subredes = int(input())
+        print("El resultado del subneteo es: " + str(ip + "/" + str(subredes)))
+    subneteo()
+
+#segun la cantidad de hosts que tiene una red, se le asigna una clase de ip
+    import os
+    os.system("cls")
+    def clase_ip():
+        import os
+        os.system("cls")
+        print("Ingrese la cantidad de hosts: ")
+        hosts = int(input())
+        if hosts <= 126:
+            print("La clase de ip es A")
+        elif hosts <= 254:
+            print("La clase de ip es B")
+        elif hosts <= 524:
+            print("La clase de ip es C")
+        elif hosts <= 1022:
+            print("La clase de ip es D")
+        elif hosts <= 2046:
+            print("La clase de ip es E")
+        else:
+            print("La clase de ip es F")
+    clase_ip()
+
+#segun la clase de la ip calcular la cantidad de hosts que tiene
+    import os
+    os.system("cls")
+    def cantidad_hosts():
+        import os
+        os.system("cls")
+        print("Ingrese la clase de ip: ")
+        clase = input()
+        if clase == "A":
+            print("La cantidad de hosts es: " + str(126))
+        elif clase == "B":
+            print("La cantidad de hosts es: " + str(254))
+        elif clase == "C":
+            print("La cantidad de hosts es: " + str(524))
+        elif clase == "D":
+            print("La cantidad de hosts es: " + str(1022))
+        elif clase == "E":
+            print("La cantidad de hosts es: " + str(2046))
+        else:
+            print("La cantidad de hosts es: " + str(4094))
+    cantidad_hosts()
+
+#calcular la mascara de una red de una clase de ip
+    import os
+    os.system("cls")
+    def mascara():
+        import os
+        os.system("cls")
+        print("Ingrese la clase de ip: ")
+        clase = input()
+        if clase == "A":
+            print("La mascara es: " + str(" ")) #se le pone un espacio para que no salga error
+        elif clase == "B":
+            print("La mascara es: " + str(" ")) #se le pone un espacio para que no salga error
+        elif clase == "C": #se le pone un espacio para que no salga error
+            print("La mascara es: " + str(" "))
+        elif clase == "D":
+            print("La mascara es: " + str(" "))
+            
+
     
 
 
