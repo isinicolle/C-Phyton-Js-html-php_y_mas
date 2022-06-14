@@ -1,0 +1,12 @@
+C:\Users\Isis Florentino\source\repos\PrograBase\bin\Debug\PrograBase.exe.config
+C:\Users\Isis Florentino\source\repos\PrograBase\bin\Debug\PrograBase.exe
+C:\Users\Isis Florentino\source\repos\PrograBase\bin\Debug\PrograBase.pdb
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.csprojAssemblyReference.cache
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.Form1.resources
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.Properties.Resources.resources
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.csproj.GenerateResource.cache
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.csproj.CoreCompileInputs.cache
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.exe
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.pdb
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.Form_carrera.resources
+C:\Users\Isis Florentino\source\repos\PrograBase\obj\Debug\PrograBase.form_estudiante.resources

@@ -1,0 +1,12 @@
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\bin\Debug\Examen_reposicion.exe.config
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\bin\Debug\Examen_reposicion.exe
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\bin\Debug\Examen_reposicion.pdb
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.csprojAssemblyReference.cache
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.Form1.resources
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.Properties.Resources.resources
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.csproj.GenerateResource.cache
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.csproj.CoreCompileInputs.cache
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.exe
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.pdb
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.Formulario_estudiantes.resources
+C:\Users\Isis Florentino\source\repos\Examen_reposicion\obj\Debug\Examen_reposicion.Formulario_Profesores.resources

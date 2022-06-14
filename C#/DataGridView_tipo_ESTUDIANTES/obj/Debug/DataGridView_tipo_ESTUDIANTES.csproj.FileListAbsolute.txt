@@ -1,0 +1,12 @@
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\bin\Debug\DataGridView_tipo_ESTUDIANTES.exe.config
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\bin\Debug\DataGridView_tipo_ESTUDIANTES.exe
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\bin\Debug\DataGridView_tipo_ESTUDIANTES.pdb
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.csprojAssemblyReference.cache
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.Form1.resources
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.Formulario_Universitarios.resources
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.Properties.Resources.resources
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.csproj.GenerateResource.cache
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.csproj.CoreCompileInputs.cache
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.exe
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.pdb
+C:\Users\Isis Florentino\source\repos\DataGridView_tipo_ESTUDIANTES\obj\Debug\DataGridView_tipo_ESTUDIANTES.Formulario_colegio.resources

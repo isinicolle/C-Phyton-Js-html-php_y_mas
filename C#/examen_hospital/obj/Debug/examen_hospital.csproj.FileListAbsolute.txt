@@ -1,0 +1,12 @@
+C:\Users\Isis Florentino\source\repos\examen_hospital\bin\Debug\examen_hospital.exe.config
+C:\Users\Isis Florentino\source\repos\examen_hospital\bin\Debug\examen_hospital.exe
+C:\Users\Isis Florentino\source\repos\examen_hospital\bin\Debug\examen_hospital.pdb
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.csprojAssemblyReference.cache
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.Form1.resources
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.Properties.Resources.resources
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.csproj.GenerateResource.cache
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.csproj.CoreCompileInputs.cache
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.exe
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.pdb
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.Formulario_factura.resources
+C:\Users\Isis Florentino\source\repos\examen_hospital\obj\Debug\examen_hospital.Formulario_pago.resources

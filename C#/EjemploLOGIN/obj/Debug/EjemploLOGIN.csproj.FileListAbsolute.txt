@@ -1,0 +1,10 @@
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\bin\Debug\EjemploLOGIN.exe.config
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\bin\Debug\EjemploLOGIN.exe
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\bin\Debug\EjemploLOGIN.pdb
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.csprojAssemblyReference.cache
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.Form1.resources
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.Properties.Resources.resources
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.csproj.GenerateResource.cache
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.csproj.CoreCompileInputs.cache
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.exe
+C:\Users\Isis Florentino\source\repos\EjemploLOGIN\obj\Debug\EjemploLOGIN.pdb
