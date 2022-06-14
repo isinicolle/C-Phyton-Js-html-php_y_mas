@@ -1,2 +1,2 @@
 # C-Phyton-Js-html-php_y_mas
-Ejercicios que hecho de practica de programación. 
+Ejercicios que he hecho de practica de programación. 
