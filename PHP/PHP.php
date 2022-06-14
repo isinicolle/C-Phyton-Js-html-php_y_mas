@@ -1078,7 +1078,220 @@
         echo "El signo zodiacal del dia $dia/$mes/$anio es $signo"; #muestra el signo en pantalla 
     } #fin de la funcion zodiacal
 
-    
+ #utilizando poo para crear una clase que calcule el area de una figura 
+    class figura{ #clase figura  
+        var $base; #declara la variable base
+        var $altura; #declara la variable altura
+        var $area; #declara la variable area
+        function __construct($base, $altura){ #funcion constructor  
+            $this->base = $base; #asigna el valor de la base a la variable base
+            $this->altura = $altura; #asigna el valor de la altura a la variable altura
+        } #fin de la funcion constructor
+        function area(){ #funcion area  
+            $this->area = $this->base * $this->altura; #calcula el area de la figura y lo guarda en la variable area
+        } #fin de la funcion area
+        function mostrar_area(){ #funcion mostrar_area  
+            echo "El area de la figura es $this->area"; #muestra el area de la figura en pantalla
+        } #fin de la funcion mostrar_area
+    } #fin de la clase figura   
+    $figura = new figura($_POST['base'], $_POST['altura']); #crea una instancia de la clase figura 
+    $figura->area(); #llama a la funcion area de la clase figura
+    $figura->mostrar_area(); #llama a la funcion mostrar_area de la clase figura
+
+    class calculadora{ #clase calculadora  
+        var $num1; #declara la variable num1
+        var $num2; #declara la variable num2
+        var $resultado; #declara la variable resultado
+        function __construct($num1, $num2){ #funcion constructor  
+            $this->num1 = $num1; #asigna el valor de num1 a la variable num1
+            $this->num2 = $num2; #asigna el valor de num2 a la variable num2
+        } #fin de la funcion constructor
+        function suma(){ #funcion suma  
+            $this->resultado = $this->num1 + $this->num2; #calcula la suma de los numeros y lo guarda en la variable resultado
+        } #fin de la funcion suma 
+        function resta(){ #funcion resta  
+            $this->resultado = $this->num1 - $this->num2; #calcula la resta de los numeros y lo guarda en la variable resultado
+        } #fin de la funcion resta
+        function multiplicacion(){ #funcion multiplicacion  
+            $this->resultado = $this->num1 * $this->num2; #calcula la multiplicacion de los numeros y lo guarda en la variable resultado
+        } #fin de la funcion multiplicacion
+        function division(){ #funcion division  
+            $this->resultado = $this->num1 / $this->num2; #calcula la division de los numeros y lo guarda en la variable resultado
+        } #fin de la funcion division
+        function mostrar_resultado(){ #funcion mostrar_resultado  
+            echo "El resultado de la operacion es $this->resultado"; #muestra el resultado de la operacion en pantalla
+        } #fin de la funcion mostrar_resultado
+    } #fin de la clase calculadora
+
+
+#utilizando poo cree una clase llamada libros , utilice herencia para crear una clase llamada libro_fisico que herede de la clase libros , haga lo mismo con otra clase llamada libro_electronico , utilice homonimia para la descripcion de los libros y polimorfismo para los titulos de los libros , sobrecargue metodos de los costos adicionales
+    class libros{ #clase libros  
+        var $titulo; #declara la variable titulo
+        var $autor; #declara la variable autor
+        var $descripcion; #declara la variable descripcion
+        var $costo; #declara la variable costo
+        function __construct($titulo, $autor, $descripcion, $costo){ #funcion constructor  
+            $this->titulo = $titulo; #asigna el valor de titulo a la variable titulo
+            $this->autor = $autor; #asigna el valor de autor a la variable autor
+            $this->descripcion = $descripcion; #asigna el valor de descripcion a la variable descripcion
+            $this->costo = $costo; #asigna el valor de costo a la variable costo
+        } #fin de la funcion constructor
+        function mostrar_titulo(){ #funcion mostrar_titulo  
+            echo "El titulo del libro es $this->titulo"; #muestra el titulo del libro en pantalla
+        } #fin de la funcion mostrar_titulo
+        function mostrar_autor(){ #funcion mostrar_autor  
+            echo "El autor del libro es $this->autor"; #muestra el autor del libro en pantalla
+        } #fin de la funcion mostrar_autor
+        function mostrar_descripcion(){ #funcion mostrar_descripcion  
+            echo "La descripcion del libro es $this->descripcion"; #muestra la descripcion del libro en pantalla
+        } #fin de la funcion mostrar_descripcion
+        function mostrar_costo(){ #funcion mostrar_costo  
+            echo "El costo del libro es $this->costo"; #muestra el costo del libro en pantalla
+        } #fin de la funcion mostrar_costo
+    } #fin de la clase libros
+    class libro_fisico extends libros{ #clase libro_fisico que hereda de la clase libros  
+        var $descripcion; #declara la variable descripcion
+        function __construct($titulo, $autor, $descripcion, $costo){ #funcion constructor  
+            parent::__construct($titulo, $autor, $descripcion, $costo); #llama a la funcion constructor de la clase padre
+        } #fin de la funcion constructor
+        function mostrar_descripcion(){ #funcion mostrar_descripcion  
+            echo "La descripcion del libro es $this->descripcion"; #muestra la descripcion del libro en pantalla
+        } #fin de la funcion mostrar_descripcion
+    } #fin de la clase libro_fisico
+    $libro = new libros($_POST['titulo'], $_POST['autor'], $_POST['descripcion'], $_POST['costo']); #crea una instancia de la clase libros
+    $libro->mostrar_titulo(); #llama a la funcion mostrar_titulo de la clase libros
+    $libro->mostrar_autor(); #llama a la funcion mostrar_autor de la clase libros
+    $libro->mostrar_descripcion(); #llama a la funcion mostrar_descripcion de la clase libros
+    $libro->mostrar_costo(); #llama a la funcion mostrar_costo de la clase libros
+    $libro_fisico = new libro_fisico($_POST['titulo'], $_POST['autor'], $_POST['descripcion'], $_POST['costo']); #crea una instancia de la clase libro_fisico
+    $libro_fisico->mostrar_descripcion(); #llama a la funcion mostrar_descripcion de la clase libro_fisico
+#herede ahora una clase para libro_electronico que herede de la clase libros
+    class libro_electronico extends libros{ #clase libro_electronico que herede de la clase libros  
+        var $descripcion; #declara la variable descripcion
+        function __construct($titulo, $autor, $descripcion, $costo){ #funcion constructor  
+            parent::__construct($titulo, $autor, $descripcion, $costo); #llama a la funcion constructor de la clase padre
+        } #fin de la funcion constructor
+        function mostrar_descripcion(){ #funcion mostrar_descripcion  
+            echo "La descripcion del libro es $this->descripcion"; #muestra la descripcion del libro en pantalla
+        } #fin de la funcion mostrar_descripcion
+    } #fin de la clase libro_electronico
+    $libro_electronico = new libro_electronico($_POST['titulo'], $_POST['autor'], $_POST['descripcion'], $_POST['costo']); #crea una instancia de la clase libro_electronico
+    $libro_electronico->mostrar_descripcion(); #llama a la funcion mostrar_descripcion de la clase libro_electronico
+
+#cree un formulario que llene los datos de la clase libro
+    echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+    echo "<label>Titulo:</label>"; #muestra el label titulo
+    echo "<input type='text' name='titulo'><br>"; #muestra el input titulo
+    echo "<label>Autor:</label>"; #muestra el label autor
+    echo "<input type='text' name='autor'><br>"; #muestra el input autor
+    echo "<label>Descripcion:</label>"; #muestra el label descripcion
+    echo "<input type='text' name='descripcion'><br>"; #muestra el input descripcion
+    echo "<label>Costo:</label>"; #muestra el label costo
+    echo "<input type='text' name='costo'><br>"; #muestra el input costo
+    echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+    echo "</form>"; #cierra el formulario
+
+    echo "<br>"; #muestra un salto de linea
+#cree dos botones que le de a elegir al usuario entre libro fisico o libro electronico y que llame a la funcion que seleccione el tipo de libro segun el boton que selecciono despliegue un formulario para el llenado de datos de su respectiva clase
+    echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+    echo "<input type='submit' name='tipo_libro' value='Libro Fisico'>"; #muestra el input submit con el valor libro fisico
+    echo "</form>"; #cierra el formulario
+    echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+    echo "<input type='submit' name='tipo_libro' value='Libro Electronico'>"; #muestra el input submit con el valor libro electronico
+    echo "</form>"; #cierra el formulario
+#si el usuario selecciono el boton libro fisico entonces se despliega un formulario para llenar los datos de la clase libro_fisico
+    if(isset($_POST['tipo_libro']) && $_POST['tipo_libro'] == 'Libro Fisico'){ #si el usuario selecciono el boton libro fisico  
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<label>Titulo:</label>"; #muestra el label titulo
+        echo "<input type='text' name='titulo'><br>"; #muestra el input titulo
+        echo "<label>Autor:</label>"; #muestra el label autor
+        echo "<input type='text' name='autor'><br>"; #muestra el input autor
+        echo "<label>Descripcion:</label>"; #muestra el label descripcion
+        echo "<input type='text' name='descripcion'><br>"; #muestra el input descripcion
+        echo "<label>Costo:</label>"; #muestra el label costo
+        echo "<input type='text' name='costo'><br>"; #muestra el input costo
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+    } #fin de la condicion si el usuario selecciono el boton libro fisico
+#si el usuario selecciono el boton libro electronico entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+    if(isset($_POST['tipo_libro']) && $_POST['tipo_libro'] == 'Libro Electronico'){ #si el usuario selecciono el boton libro electronico  
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<label>Titulo:</label>"; #muestra el label titulo
+        echo "<input type='text' name='titulo'><br>"; #muestra el input titulo
+        echo "<label>Autor:</label>"; #muestra el label autor
+        echo "<input type='text' name='autor'><br>"; #muestra el input autor
+        echo "<label>Descripcion:</label>"; #muestra el label descripcion
+        echo "<input type='text' name='descripcion'><br>"; #muestra el input descripcion
+        echo "<label>Costo:</label>"; #muestra el label costo
+        echo "<input type='text' name='costo'><br>"; #muestra el input costo
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+    } #fin de la condicion si el usuario selecciono el boton libro electronico
+#si el usuario selecciono el boton enviar entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+
+#mostrar en pantalla los datos que ingreso del libro y que tipo de libro escogio 
+    if(isset($_POST['titulo']) && isset($_POST['autor']) && isset($_POST['descripcion']) && isset($_POST['costo'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Datos del Libro</h1>"; #muestra el titulo 
+        echo "<p>Titulo: ".$_POST['titulo']."</p>"; #muestra el titulo
+        echo "<p>Autor: ".$_POST['autor']."</p>"; #muestra el autor
+        echo "<p>Descripcion: ".$_POST['descripcion']."</p>"; #muestra la descripcion
+        echo "<p>Costo: ".$_POST['costo']."</p>"; #muestra el costo
+        echo "<p>Tipo de Libro: ".$_POST['tipo_libro']."</p>"; #muestra el tipo de libro
+    } #fin de la condicion si el usuario selecciono el boton enviar
+#si el usuario selecciono el boton enviar entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+
+    if(isset($_POST['tipo_libro']) && $_POST['tipo_libro'] == 'Libro Fisico'){ #si el usuario selecciono el boton libro fisico  
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<label>Titulo:</label>"; #muestra el label titulo
+        echo "<input type='text' name='titulo'><br>"; #muestra el input titulo
+        echo "<label>Autor:</label>"; #muestra el label autor
+        echo "<input type='text' name='autor'><br>"; #muestra el input autor
+        echo "<label>Descripcion:</label>"; #muestra el label descripcion
+        echo "<input type='text' name='descripcion'><br>"; #muestra el input descripcion
+        echo "<label>Costo:</label>"; #muestra el label costo
+        echo "<input type='text' name='costo'><br>"; #muestra el input costo
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+    } #fin de la condicion si el usuario selecciono el boton libro fisico
+#si el usuario selecciono el boton libro electronico entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+    if(isset($_POST['tipo_libro']) && $_POST['tipo_libro'] == 'Libro Electronico'){ #si el usuario selecciono el boton libro electronico  
+        echo "<form action='calculadora.php' method='post'>"; #abre el formulario
+        echo "<label>Titulo:</label>"; #muestra el label titulo
+        echo "<input type='text' name='titulo'><br>"; #muestra el input titulo
+        echo "<label>Autor:</label>"; #muestra el label autor
+        echo "<input type='text' name='autor'><br>"; #muestra el input autor
+        echo "<label>Descripcion:</label>"; #muestra el label descripcion
+        echo "<input type='text' name='descripcion'><br>"; #muestra el input descripcion
+        echo "<label>Costo:</label>"; #muestra el label costo
+        echo "<input type='text' name='costo'><br>"; #muestra el input costo
+        echo "<input type='submit' value='Enviar'>"; #muestra el input submit
+        echo "</form>"; #cierra el formulario
+    } #fin de la condicion si el usuario selecciono el boton libro electronico
+#si el usuario selecciono el boton enviar entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+
+#mostrar al usuario el costo total de los libros que selecciono
+    if(isset($_POST['titulo']) && isset($_POST['autor']) && isset($_POST['descripcion']) && isset($_POST['costo'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Costo Total</h1>"; #muestra el titulo 
+        echo "<p>Costo Total: ".$_POST['costo']."</p>"; #muestra el costo total
+    } #fin de la condicion si el usuario selecciono el boton enviar
+#si el usuario selecciono el boton enviar entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+
+#mostrarle al usaurio un mensaje de agradecimiento por la compra de su libro calcular el descuento segun el tipo de libro que selecciono y su costo entre mas costoso es el descuento mas grande
+    if(isset($_POST['titulo']) && isset($_POST['autor']) && isset($_POST['descripcion']) && isset($_POST['costo'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Agradecimiento</h1>"; #muestra el titulo 
+        echo "<p>Gracias por su compra</p>"; #muestra el mensaje de agradecimiento 
+        echo "<p>El descuento es de: ".$_POST['costo']."</p>"; #muestra el descuento 
+    } #fin de la condicion si el usuario selecciono el boton enviar 
+#si el usuario selecciono el boton enviar entonces se despliega un formulario para llenar los datos de la clase libro_electronico
+
+    if(isset($_POST['titulo']) && isset($_POST['autor']) && isset($_POST['descripcion']) && isset($_POST['costo'])){ #si el usuario selecciono el boton enviar  
+        echo "<h1>Agradecimiento</h1>"; #muestra el titulo 
+        echo "<p>Gracias por su compra</p>"; #muestra el mensaje de agradecimiento 
+        echo "<p>El descuento es de: ".$_POST['costo']."</p>"; #muestra el descuento 
+    } #fin de la condicion si el usuario selecciono el boton enviar
+
+
+
 
    
 
