@@ -1352,18 +1352,120 @@ def ejercicio50():
     print("El voltaje del circuito en paralelo es: " + str(voltaje_paralelo(1, 2, 3, 4, 5, 6, 7, 8, 9)))
     
 
+    #calcular el logaritmo del numero ingresado y graficarlo
+    import os
+    os.system("cls")
+    def logaritmo(a):
+        logaritmo = [math.log(x) for x in range(0, 360, 1)]
+        return logaritmo
+    print("El logaritmo de la funcion es: " + str(logaritmo(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(logaritmo(1))
+    plt.show()
+
+    #calcular la derivada de una funcion y graficarla
+    import os
+    os.system("cls")
+    def derivada(a):
+        derivada = [math.log(x) for x in range(0, 360, 1)]
+        return derivada
+    print("La derivada de la funcion es: " + str(derivada(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(derivada(1))
+    plt.show()
+
+    #calcular la integral de una funcion y graficarla
+    import os
+    os.system("cls")
+    def integral(a):
+        integral = [math.log(x) for x in range(0, 360, 1)]
+        return integral
+    print("La integral de la funcion es: " + str(integral(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(integral(1))
+    plt.show()
+
+   #calcular el promedio total de la clase de matematicas y graficarlo
+    import os
+    os.system("cls")
+    def promedio(a):
+        promedio = [math.log(x) for x in range(0, 360, 1)]
+        return promedio
+    print("El promedio total de la clase de matematicas es: " + str(promedio(1)))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math
+    plt.plot(promedio(1))
+    plt.show()
+
+
+
+#subir una imagen
+    import os
+    os.system("cls")
+    def subir_imagen():
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
+        return file_path
+    print("La imagen subida es: " + str(subir_imagen()))
+
+    #subir un video
+    import os
+    os.system("cls")
+    def subir_video():
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
+        return file_path
+    print("El video subido es: " + str(subir_video()))
+
+#escribir en un archivo de texto la informacion de sonido de un video
+    import os
+    os.system("cls")
+    def escribir_archivo():
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
+        return file_path
+    print("El archivo de texto escrito es: " + str(escribir_archivo()))
+
+ #subir una imagen y buscar si se encuentra en internet en caso que si mostrar un mensaje que se encuentra
+ #en internet y en caso que no mostrar un mensaje que no se encuentra en internet
+    import os
+    os.system("cls")
+    def subir_imagen():
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
+        return file_path
+    print("La imagen subida es: " + str(subir_imagen()))
+    import requests
+    import os
+    os.system("cls")
+    def buscar_imagen():
+        url = "https://www.google.com/search?q=" + subir_imagen()
+        r = requests.get(url)
+        if r.status_code == 200:
+            print("La imagen se encuentra en internet")
+        else:
+            print("La imagen no se encuentra en internet")
+    buscar_imagen()
     
-   
-
-
-
-
-
-
-
-
-   
-
 
 
 
