@@ -1,0 +1,144 @@
+#promo {
+  text-align: center;
+  padding: 40px;
+  background: url("../../assets/img/bg.jpg");
+  background-size: cover;
+}
+
+#promo #jumbotron {
+  border-radius: 30px;
+  padding: 20x;
+  background-color: rgba(245, 245, 245, 0.18);
+}
+
+.container {
+  background-color: rgba(255, 228, 196, 0.08);
+  padding: 0px;
+  margin: 0 auto;
+}
+
+.glyphicon.glyphicon-star {
+  background: url("../../assets/img/pan.jpg");
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width:1200px) {
+
+  .h1,
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'Amaranth';
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: 'Amaranth';
+}
+
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.border-dark {
+  border-color: #333 !important;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgba(186, 79, 2, 0.09);
+}
+
+h2 {
+  padding: 10px;
+}
+
+#calorias {
+  background-color: rgba(255, 255, 255, 0.16);
+  text-align: center;
+  text-decoration-color: #f1f1f1;
+  table-layout: auto;
+  padding: auto;
+  margin: auto;
+}
+
+#tablerow {
+  background-color: rgba(143, 146, 150, 0.1);
+  color: white;
+}
+
+#tablerow :hover {
+  background-color: rgba(119, 129, 143, 0.4);
+  color: white;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#suscrib-div {
+  padding: 5px;
+  margin: 5px;
+}
+
+.contactenos {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.susDatos {
+  display: block;
+  width: 100%;
+  padding: 1.375rem .75rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.suUbicacion {
+  display: block;
+  width: 100%;
+  padding-top: 35px;
+  text-align: center;
+}
+
+#enviar {
+  width: 30%;
+  background-image: linear-gradient(#f9e8c1, #e3c678 50%, #eaa80d);
+  border: none;
+  margin-top: 5px;
+}
+
+#todoColor {
+  background: linear-gradient(to bottom right, rgb(224, 207, 139), rgb(255, 255, 255));
+  border-radius: 5px;
+}
+
+.centrarLista {
+  text-align: center;
+}
+
+.centrarLista ol {
+  text-align: left;
+  display: inline-block;
+}
+
+.parrafo {
+  font-size: 18px;
+}

@@ -1,0 +1,130 @@
+.jumbotron-circular-addon-wrapper {
+  background-color: #f1f1f1;
+  margin: 32px 0;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron {
+  background-color: inherit;
+  text-align: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon {
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon-top {
+  top: -32px;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon-bottom {
+  bottom: -32px;
+}
+
+.jumbotron-addon-circle {
+  font-size: 24px;
+  width: 64px;
+  height: 64px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: inherit;
+}
+
+.jumbotron-addon-circle > span, .jumbotron-addon-circle > i {
+  display: block;
+  width: 48px;
+  height: 48px;
+  line-height: 1;
+  padding: 25%;
+  border-radius: 50%;
+}
+
+.informacion {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.informacion .row .col :hover{
+ background-color: rgba(223, 157, 136, 0.226);
+}
+
+.row {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#info-ofre {
+  margin-top: auto;
+  padding-top: 0px;
+}
+
+#logo {
+  max-height: 42px;
+  margin-right: 16px;
+  margin-top: -3px;
+  display: inline-block;
+}
+
+#logoinfo {
+  height: 250px;
+}
+
+#logofooter {
+  max-height: 40px;
+}
+
+.jumbotron {
+  background-color: #1f2630;
+}
+
+#img-zoom {
+  max-height: 200px;
+  padding: 0;
+  margin: 0;
+}
+
+#tituloiinicio {
+  padding: 10px;
+  margin: 5px;
+}
+
+
+
+#imagen1 {
+  max-height: 40px;
+}
+
+#botonesingre {
+  margin: 5px;
+  padding: 6px;
+}
+
+#galeriacontainer {
+  background-color: rgba(237,234,233,0.58);
+}
+
+section {
+  padding: 20px;
+}
+
+.textobanner{
+  padding: 20px;
+  margin: 25px;
+  text-align: justify;
+  font-size: 20px;
+   background-color: #ffc10815;
+   display: block;
+   
+}
